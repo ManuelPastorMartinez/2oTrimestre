@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 public class Bateria_Ejercicios {
-        static Scanner teclado;
+        static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("*** Batería de ejercicios sobre recursividad ***");
         System.out.println("Selecciona a continuación el modo que quieras ejecutar...");
@@ -25,7 +25,8 @@ public class Bateria_Ejercicios {
          int opcion = teclado.nextInt();
         switch (opcion){
             case 1:
-                return digitos(10);
+
+                break;
             case 2:
 
                 break;
@@ -34,6 +35,7 @@ public class Bateria_Ejercicios {
                 break;
 
             case 4:
+
                 break;
 
             case 5:
