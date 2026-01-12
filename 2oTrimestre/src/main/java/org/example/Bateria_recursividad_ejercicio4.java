@@ -1,9 +1,13 @@
 package org.example;
 
-public class Bateria_recursividad_ejercicio4 {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        System.out.println(comprobar_binario(10011001));
+public class Bateria_recursividad_ejercicio4 {
+    static Scanner teclado = new Scanner(System.in);
+    public static void main(String[] args) {
+        System.out.println("Dime un número");
+        int numero = teclado.nextInt();
+        System.out.println(comprobar_binario(numero));
     }
 
     public static boolean comprobar_binario(int numero) {

@@ -15,30 +15,43 @@ public class Bateria_Ejercicios {
         System.out.println(" 6 - Orden alfabético");
         System.out.println(" 7 - Mostrar suma");
         switch_case();
-
-        System.out.println(digitos(10));
-
-        System.out.println(potencia(5,5));
     }
 
     public static int switch_case() {
          int opcion = teclado.nextInt();
         switch (opcion){
             case 1:
-
+                System.out.println("introduce un número");
+                int numero_digitos = teclado.nextInt();
+                System.out.println(digitos(numero_digitos));
                 break;
             case 2:
-
+                System.out.println("Dame una base y un exponente");
+                int base = teclado.nextInt();
+                int exponente = teclado.nextInt();
+                System.out.println(potencia(base,exponente));
                 break;
 
             case 3:
+                System.out.println("Introduce un número");
+                int numero_del_reves = teclado.nextInt();
+                del_reves(numero_del_reves);
+                System.out.println("Ahora introduce una frase");
+                String frase = teclado.nextLine();
+                char[] frase_char = frase.toCharArray();
+                char_del_reves(frase_char.length-1,frase_char);
                 break;
 
             case 4:
-
+                System.out.println("Dime un número");
+                int numero_binario = teclado.nextInt();
+                System.out.println(comprobar_binario(numero_binario));
                 break;
 
             case 5:
+                System.out.println("Introduce un número");
+                int numero_convertir = teclado.nextInt();
+                System.out.print(convertir_binario(numero_convertir));
                 break;
 
             case 6:
@@ -69,6 +82,51 @@ public class Bateria_Ejercicios {
             return base*potencia(base,exponente-1);
 
         }
+    }
+
+    public static void del_reves(int numero){
+
+        if (numero < 10){
+            System.out.println(numero);
+        }else {
+            System.out.println(numero%10);
+            del_reves(numero/10);
+        }
+    }
+
+    public static void char_del_reves(int posicion, char[] frase){
+
+        if (posicion>=0){
+            System.out.print(frase[posicion]);
+            char_del_reves(posicion-1,frase);
+        }
+
+
+    }
+
+    public static boolean comprobar_binario(int numero) {
+
+        if (numero >= 10) {
+            if (numero % 10 == 0 || numero % 10 == 1) {
+                return comprobar_binario(numero/10);
+            } else {
+                return false;
+            }
+        }else if (numero==0 || numero==1){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+    public static String convertir_binario(int num){
+        if (num<=1){
+            return Integer.toString(num);
+        }else {
+            return convertir_binario(num/2)+num%2;
+        }
+
     }
 
 }

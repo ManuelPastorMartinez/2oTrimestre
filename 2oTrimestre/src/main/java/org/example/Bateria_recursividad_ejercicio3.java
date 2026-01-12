@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Bateria_recursividad_ejercicio3 {
     static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
-        del_reves(1579);
-        System.out.println("Introduce una frase");
+        System.out.println("Introduce un número");
+        int numero = teclado.nextInt();
+        del_reves(numero);
+        System.out.println("Ahora introduce una frase");
         String frase = teclado.nextLine();
         char[] frase_char = frase.toCharArray();
         char_del_reves(frase_char.length-1,frase_char);
@@ -30,12 +32,5 @@ public class Bateria_recursividad_ejercicio3 {
         }
 
 
-    }
-
-    public static void char_del_reves_sin_vector(int posicion, String frase){
-
-        if (posicion>=0){
-            System.out.println();
-        }
     }
 }
