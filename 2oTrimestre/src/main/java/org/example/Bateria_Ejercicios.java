@@ -55,6 +55,9 @@ public class Bateria_Ejercicios {
                 break;
 
             case 6:
+                System.out.println("Dime una frase");
+                String frase_alfabeticamente=teclado.nextLine();
+                System.out.println(comprobar_alfabeticamente(frase_alfabeticamente));
                 break;
 
             case 7:
@@ -127,6 +130,20 @@ public class Bateria_Ejercicios {
             return convertir_binario(num/2)+num%2;
         }
 
+    }
+
+    public static boolean comprobar_alfabeticamente(String frase){
+
+        if (frase.length()>0){
+            for (int i = 0; i < frase.length()-1; i++) {
+                if (frase.charAt(i)>frase.charAt(i+1)){
+                    return true;
+                }
+            }
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }
