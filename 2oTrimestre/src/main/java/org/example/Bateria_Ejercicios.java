@@ -1,10 +1,17 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Bateria_Ejercicios {
         static Scanner teclado = new Scanner(System.in);
-    public static void main(String[] args) {
+        static int limite = 1;
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+        switch_case();
+    }
+
+    public static void switch_case() throws IOException, InterruptedException {
         System.out.println("*** Batería de ejercicios sobre recursividad ***");
         System.out.println("Selecciona a continuación el modo que quieras ejecutar...");
         System.out.println(" 1 - Dígitos");
@@ -14,22 +21,22 @@ public class Bateria_Ejercicios {
         System.out.println(" 5 - A binario");
         System.out.println(" 6 - Orden alfabético");
         System.out.println(" 7 - Mostrar suma");
-        switch_case();
-    }
-
-    public static int switch_case() {
          int opcion = teclado.nextInt();
         switch (opcion){
             case 1:
                 System.out.println("introduce un número");
                 int numero_digitos = teclado.nextInt();
                 System.out.println(digitos(numero_digitos));
+                borrar();
+                opcion();
                 break;
             case 2:
                 System.out.println("Dame una base y un exponente");
                 int base = teclado.nextInt();
                 int exponente = teclado.nextInt();
                 System.out.println(potencia(base,exponente));
+                borrar();
+                opcion();
                 break;
 
             case 3:
@@ -40,34 +47,45 @@ public class Bateria_Ejercicios {
                 String frase = teclado.nextLine();
                 char[] frase_char = frase.toCharArray();
                 char_del_reves(frase_char.length-1,frase_char);
+                borrar();
+                opcion();
                 break;
 
             case 4:
                 System.out.println("Dime un número");
                 int numero_binario = teclado.nextInt();
                 System.out.println(comprobar_binario(numero_binario));
+                borrar();
+                opcion();
                 break;
 
             case 5:
                 System.out.println("Introduce un número");
                 int numero_convertir = teclado.nextInt();
                 System.out.print(convertir_binario(numero_convertir));
+                borrar();
+                opcion();
                 break;
 
             case 6:
                 System.out.println("Dime una frase");
                 String frase_alfabeticamente=teclado.nextLine();
                 System.out.println(comprobar_alfabeticamente(frase_alfabeticamente));
+                borrar();
+                opcion();
                 break;
 
             case 7:
+                System.out.println("Dame un número");
+                int numero = teclado.nextInt();
+                System.out.println(suma_numeros(numero));
+                borrar();
+                opcion();
                 break;
 
             default:
-                return 0;
-        }
 
-        return opcion;
+        }
     }
     public static int digitos(int num){
         if (num<10){
@@ -143,6 +161,40 @@ public class Bateria_Ejercicios {
             return true;
         }else {
             return false;
+        }
+    }
+
+    public static int suma_numeros(int num){
+        int res = 0;
+        if (num<=limite){
+            return num;
+        }else {
+            return num + suma_numeros(num-1);
+        }
+    }
+
+    public static void borrar() throws  InterruptedException, IOException {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+
+    }
+
+    public static void opcion() throws IOException, InterruptedException {
+        System.out.println("Que quieres hacer?");
+        System.out.println("[M] - Volver al menú principal");
+        System.out.println("[X] - Salir");
+
+        char opcion = teclado.nextLine().toUpperCase().charAt(0);
+
+        switch (opcion){
+            case 'M' :
+                switch_case();
+                break;
+            case 'X':
+                System.out.println("Saliendo del programa...");
+                break;
+            default:
+                break;
+
         }
     }
 
