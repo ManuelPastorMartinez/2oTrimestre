@@ -21,6 +21,7 @@ public class Bateria_Ejercicios {
         System.out.println(" 5 - A binario");
         System.out.println(" 6 - Orden alfabético");
         System.out.println(" 7 - Mostrar suma");
+
          int opcion = teclado.nextInt();
         switch (opcion){
             case 1:
