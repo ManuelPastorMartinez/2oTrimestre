@@ -1,48 +1,55 @@
 package Tema5;
 
 public class Televisor {
-    private int canal=1;
-    private int volumen=5;
+    private static final int DEF_CANAL = 1;
+    private static final int DEF_VOLUMEN=5;
+    private int canal;
+    private int volumen;
 
-    public Televisor(){
 
-    }
 
     public Televisor(int valorCanal, int volumen){
         this.canal=valorCanal;
         this.volumen=volumen;
     }
 
-    public  void subirCanal(int canal){
+    public Televisor(){
+        canal=DEF_CANAL;
+        volumen=DEF_VOLUMEN;
+    }
+
+    public  void subirCanal(){
         if (canal==100) {
              canal=1;
+
         }else {
-            this.canal=canal+1;
+            canal=canal+1;
         }
 
+        System.out.println("Canal: "+canal);
+
     }
-    public void bajarCanal(int canal){
-        if (canal<0){
+    public void bajarCanal(){
+        if (canal==1 ){
             canal=99;
         }else {
-            this.canal=canal-1;
+            canal=canal-1;
         }
     }
 
-    public void subirVolumen(int volumen){
-        if (volumen==100){
-            volumen=1;
-        }else{
-            this.volumen=volumen+1;
+    public void subirVolumen(){
+        if (volumen<100){
+            volumen = volumen+1;
         }
+        System.out.println("Volumen: "+volumen);
     }
 
-    public void bajarVolumen(int volumen){
-        if (volumen<0){
-            volumen=99;
-        }else{
-            this.volumen=volumen-1;
+    public void bajarVolumen(){
+        if (volumen>=0){
+            volumen=volumen-1;
         }
+
+        System.out.println("Volumen: "+volumen);
     }
 
     public int getCanal(){
@@ -61,7 +68,8 @@ public class Televisor {
         this.volumen=volumen;
     }
 
-    public void imprimirCosas(){
-        System.out.println();
+    public void imprimirDatosTelevisor(){
+        System.out.println("Canal : "+canal);
+        System.out.println("Volumen: "+volumen);
     }
 }
