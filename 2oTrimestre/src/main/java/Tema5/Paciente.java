@@ -1,14 +1,16 @@
 package Tema5;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Paciente {
-
+    static Scanner teclado = new Scanner(System.in);
     static Random aleatorio = new Random();
     private static final char DEF_GENERO = 'X';
     private static final int INFRAPESO=-1;
     private static final int PESO_IDEAL = 0;
     private static final int SOBREPESO = 1;
+    private static final int DEF_EDAD = 18;
 
     private String nombre;
     private int edad;
@@ -21,7 +23,7 @@ public class Paciente {
         this.nombre=nombre;
         this.edad=edad;
         dni=generarDNI();
-        this.genero=genero;
+        this.genero=validarGenero(genero);
         this.peso=peso;
         this.altura=altura;
     }
@@ -47,8 +49,10 @@ public class Paciente {
         return dni + letras[Integer.parseInt(dni)%23];
     }
 
-    public  int calcularIMC(){
-        double res = peso/Math.pow(altura,2);
+    public int calcularIMC(){
+        double res = peso/Math.pow((double)altura/100,2);
+
+        System.out.println(res);
 
         if (res<20){
             return INFRAPESO;
@@ -58,6 +62,27 @@ public class Paciente {
             return PESO_IDEAL;
         }
     }
+
+    public boolean esMayorDeEdad(){
+
+        if (edad>=DEF_EDAD){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    private char validarGenero (char genero){
+
+        if (genero == 'H' || genero=='M'){
+            return genero;
+        }else {
+            return DEF_GENERO;
+        }
+
+    }
+
+
 
     public String getNombre() {
         return nombre;
@@ -107,6 +132,19 @@ public class Paciente {
         this.edad = edad;
     }
 
+    public  void imprimirPacientes(){
+        System.out.println("Nombre: "+nombre);
+        System.out.println("Edad: "+edad);
+        System.out.println("Género: "+genero);
+        System.out.println("Peso: "+peso);
+        System.out.println("Altura: "+altura);
+
+    }
+
+    @Override
+    public String toString(){
+        return "Paciente [nombre = "+nombre + " edad = "+edad+" dni = "+dni+" genero = "+genero + " peso = "+peso+" altura = "+altura+"]";
+    }
 
 
 
