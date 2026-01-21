@@ -53,7 +53,6 @@ public class PacienteApp {
         Paciente persona2 = new Paciente();
         persona2.setNombre("Manuel");
         persona2.setEdad(18);
-        persona2.setGenero('M');
         persona2.setAltura(163);
         persona2.setPeso(75.5);
         persona2.imprimirPacientes();

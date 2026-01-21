@@ -2,6 +2,7 @@ package Tema5;
 
 public class Estudiante {
 
+    private static final String CORREO_FORMAT="^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
     private static int contador_estudiantes = 0;
 
     private String nombre;
@@ -13,11 +14,23 @@ public class Estudiante {
         this.nombre=nombre;
         this.curso=curso;
         this.email=email;
-        nia = contador_estudiantes+1;
+        setNia();
     }
 
     public Estudiante(String nombre){
         this(nombre,"","");
+    }
+
+    public static int obtenerTotalEstudiantes (){
+        return contador_estudiantes;
+    }
+
+    public static boolean validarCorreo(String correo){
+        if (correo.matches(CORREO_FORMAT)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public String getNombre() {
@@ -40,8 +53,8 @@ public class Estudiante {
         return nia;
     }
 
-    public void setNia(int nia) {
-        this.nia = nia;
+    private void setNia() {
+        nia = ++contador_estudiantes;
     }
 
     public String getEmail() {
@@ -51,6 +64,15 @@ public class Estudiante {
     public void setEmail(String email) {
         this.email = email;
     }
+
+     @Override
+    public String toString(){
+        return "Estudiante [" +
+                "nombre = ' ' " +nombre+
+                " curso = ' ' " +curso+
+                " nia = ' ' " +nia+
+                " email = ' ' "+email+" ]";
+     }
 
 
 }
