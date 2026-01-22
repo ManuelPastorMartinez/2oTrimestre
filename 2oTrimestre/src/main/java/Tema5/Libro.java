@@ -5,8 +5,9 @@ public class Libro {
     private static final int DEF_LIBRO_SIN_PRESTAR=1;
     private static int contadorLibrosDisponibles=0;
     private static int contadorCantidadLibros=0;
+    private static final String CADENA_ID ="LIB";
 
-    private int id= 0;
+    private String id;
     private String  titulo;
     private String autor;
     private boolean disponible;
@@ -16,30 +17,51 @@ public class Libro {
     public Libro(String titulo, String autor){
         this.titulo=titulo;
         this.autor=autor;
-        calcularId();
+        this.disponible = true;
+        id = generarId();
         setCantidadLibros();
         setLibrosDisponibles();
+    }
+
+
+    private String generarId() {
+        return CADENA_ID+cantidadLibros;
+    }
+
+    public boolean estaDisponible(){
+        return disponible;
+    }
+
+    public void prestar(){
+        if (disponible){
+            System.out.println("El libro "+titulo+" ha sido prestado con éxito.");
+            librosDisponibles--;
+            disponible = false;
+        } else {
+            System.out.println("El libro "+titulo+" no se puede prestar debido a que ya esta prestado.");
+        }
 
     }
 
-    public boolean prestar(){
-        return true;
+    public void devolver(){
+        if (!disponible){
+            System.out.println("El libro "+titulo+" ha sido devuelto con éxito.");
+            librosDisponibles++;
+            disponible = true;
+        } else {
+            System.out.println("El libro "+titulo+" ya está disponible. No se puede devolver.");
+        }
     }
 
-    private void calcularId(){
-        id++;
+
+
+    public static int getTotalLibros(){
+        return cantidadLibros;
     }
+
 
     public Libro(){
 
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitulo() {
@@ -83,7 +105,16 @@ public class Libro {
     }
 
 
+@Override
 
+    public String toString(){
+        return "Total de libros creados: "+getTotalLibros()+
+                " Total libros disponibles: "+getLibrosDisponibles()+
+                " El libro "+getTitulo()+" ha sido prestado." +
+                " Libros disponibles después del prestamo: "+getLibrosDisponibles()+
+                " El libro "+getTitulo()+" ha sido devuelto."+
+                " Libros disponibles después de la devolución: "+getLibrosDisponibles();
+    }
 
 
 
