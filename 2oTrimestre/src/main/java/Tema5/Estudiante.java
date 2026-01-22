@@ -68,10 +68,10 @@ public class Estudiante {
      @Override
     public String toString(){
         return "Estudiante [" +
-                "nombre = ' ' " +nombre+
-                " curso = ' ' " +curso+
-                " nia = ' ' " +nia+
-                " email = ' ' "+email+" ]";
+                "nombre = ' "+nombre+" ' "+
+                " curso = ' "+curso+" ' "+
+                " nia = ' "+nia+" ' "+
+                " email = '"+email+" '  ]";
      }
 
 
