@@ -13,6 +13,7 @@ public class Libro {
     private boolean disponible;
     private static int cantidadLibros=0;
     private static int librosDisponibles;
+    private Estudiante estudiantePrestado;
 
     public Libro(String titulo, String autor){
         this.titulo=titulo;
@@ -21,6 +22,7 @@ public class Libro {
         id = generarId();
         setCantidadLibros();
         setLibrosDisponibles();
+        estudiantePrestado = new Estudiante("");
     }
 
 
@@ -32,27 +34,38 @@ public class Libro {
         return disponible;
     }
 
-    public void prestar(){
-        if (disponible){
-            System.out.println("El libro "+titulo+" ha sido prestado con éxito.");
+    public void prestar(Estudiante estudiante) {
+        if (disponible) {
+            System.out.println("El libro " + titulo + " ha sido prestado a " + estudiante.getNombre() + " de " + estudiante.getCurso() + ".");
             librosDisponibles--;
             disponible = false;
-        } else {
-            System.out.println("El libro "+titulo+" no se puede prestar debido a que ya esta prestado.");
+            estudiantePrestado = estudiante;
+            estudiante.setLibro(this);
+        } else if (estudiante.getLibro()==null) {
+
+        }else {
+            System.out.println("El libro "+titulo+" no está disponible");
         }
 
     }
 
     public void devolver(){
         if (!disponible){
-            System.out.println("El libro "+titulo+" ha sido devuelto con éxito.");
+            System.out.println("El libro "+titulo+" ha sido devuelto por "+estudiantePrestado.getNombre()+" de "+estudiantePrestado.getCurso());
             librosDisponibles++;
             disponible = true;
+            estudiantePrestado.setLibro(null);
+            estudiantePrestado=null;
+
         } else {
             System.out.println("El libro "+titulo+" ya está disponible. No se puede devolver.");
         }
     }
 
+
+    public Estudiante getEstudiantePrestado() {
+        return estudiantePrestado;
+    }
 
 
     public static int getTotalLibros(){

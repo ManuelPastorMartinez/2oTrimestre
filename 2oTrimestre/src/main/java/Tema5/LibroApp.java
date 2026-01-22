@@ -9,16 +9,15 @@ public class LibroApp {
         System.out.println(quijote.getTitulo());
         System.out.println(quijote.getAutor());
 
-        quijote.prestar();
-        quijote.prestar();
+
 
 
         System.out.println(quijote.estaDisponible());
 
         System.out.println("Libros disponibles: "+Libro.getLibrosDisponibles());
         System.out.println("Total libros: "+Libro.getTotalLibros());
-        quijote.devolver();
-        quijote.devolver();
+
+
 
 
         System.out.println(quijote.estaDisponible());

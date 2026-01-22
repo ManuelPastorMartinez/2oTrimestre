@@ -19,5 +19,11 @@ public class EstudianteApp {
 
         System.out.println(Estudiante.validarCorreo("manuel@gmail.com"));
         System.out.println(Estudiante.validarCorreo("manuel@alu.edu.gva.es"));
+
+        Libro divina_comedia = new Libro("divina comedia","dante ali");
+
+        divina_comedia.prestar(jorge);
+
+        divina_comedia.devolver();
     }
 }
