@@ -43,13 +43,9 @@ public class ListaCompra {
         copia_lista.clear();
         System.out.println("La copia de la lista está vacia?: "+copia_lista.isEmpty());
 
-        boolean sonIguales = lista.equals(copia_lista);
 
-        if (sonIguales){
-            System.out.println("Las dos listas son iguales");
-        }else {
-            System.out.println("Las dos listas NO son iguales");
-        }
+        sonIguales(lista,copia_lista);
+
 
         copia_lista.add("Huevos");
         copia_lista.add("Patatas");
@@ -57,7 +53,7 @@ public class ListaCompra {
         ArrayList<String>faltantes = new ArrayList<>(lista);
         faltantes.removeAll(copia_lista);
 
-        
+
 
 
 
@@ -67,5 +63,15 @@ public class ListaCompra {
 
     public static int comprobarElemento(String palabra, ArrayList<String > copia ){
         return copia.indexOf(palabra);
+    }
+
+    public static boolean sonIguales(ArrayList<String>lista,ArrayList<String>copia_lista){
+        if (lista.contains(copia_lista)){
+            System.out.println("Las listas son iguales");
+            return true;
+        }else {
+            System.out.println("Las listas no son iguales");
+            return false;
+        }
     }
 }
