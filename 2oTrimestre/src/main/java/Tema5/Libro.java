@@ -14,8 +14,9 @@ public class Libro {
     private static int cantidadLibros=0;
     private static int librosDisponibles;
     private Estudiante estudiantePrestado;
+    private Editorial editorial;
 
-    public Libro(String titulo, String autor){
+    public Libro(String titulo, String autor,Editorial editorial){
         this.titulo=titulo;
         this.autor=autor;
         this.disponible = true;
@@ -23,6 +24,7 @@ public class Libro {
         setCantidadLibros();
         setLibrosDisponibles();
         estudiantePrestado = new Estudiante("");
+        this.editorial=editorial;
     }
 
 
@@ -34,18 +36,23 @@ public class Libro {
         return disponible;
     }
 
-    public void prestar(Estudiante estudiante) {
-        if (disponible) {
+    public Prestamo prestar(Estudiante estudiante) {
+
+        Prestamo prestamo = null;
+
+        if (disponible && estudiante.getLibro()==null) {
             System.out.println("El libro " + titulo + " ha sido prestado a " + estudiante.getNombre() + " de " + estudiante.getCurso() + ".");
             librosDisponibles--;
             disponible = false;
             estudiantePrestado = estudiante;
             estudiante.setLibro(this);
-        } else if (estudiante.getLibro()==null) {
-
+            prestamo = new Prestamo(this,estudiante);
+            System.out.println("Préstamo realizado con éxito.");
         }else {
             System.out.println("El libro "+titulo+" no está disponible");
         }
+
+        return prestamo;
 
     }
 
@@ -118,7 +125,7 @@ public class Libro {
     }
 
 
-@Override
+    @Override
 
     public String toString(){
         return "Total de libros creados: "+getTotalLibros()+
@@ -128,12 +135,6 @@ public class Libro {
                 " El libro "+getTitulo()+" ha sido devuelto."+
                 " Libros disponibles después de la devolución: "+getLibrosDisponibles();
     }
-
-
-
-
-
-
 
 
 }

@@ -79,15 +79,14 @@ public class Estudiante {
         this.libro = libro;
     }
 
-     @Override
+    @Override
     public String toString(){
         return "Estudiante [" +
                 "nombre = ' "+nombre+" ' "+
                 " curso = ' "+curso+" ' "+
                 " nia = ' "+nia+" ' "+
                 " email = '"+email+" ' " +
-                " libro = '"+libro+" '  ]";
-     }
-
+                " libro = '"+libro.getTitulo()+" '  ]";
+    }
 
 }

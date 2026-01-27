@@ -11,7 +11,7 @@ public class EstudianteApp {
         Estudiante raul = new Estudiante("raul");
 
         System.out.println(raul.getNia());
-        System.out.println(raul);
+
 
         Estudiante adrian = new Estudiante("adrian");
 
@@ -20,9 +20,17 @@ public class EstudianteApp {
         System.out.println(Estudiante.validarCorreo("manuel@gmail.com"));
         System.out.println(Estudiante.validarCorreo("manuel@alu.edu.gva.es"));
 
-        Libro divina_comedia = new Libro("divina comedia","dante ali");
+        Editorial millenium= new Editorial("Millenium","España");
 
-        divina_comedia.prestar(jorge);
+        Libro divina_comedia = new Libro("divina comedia","dante ali",millenium);
+
+        Prestamo p1 = divina_comedia.prestar(jorge);
+
+        System.out.println("Fecha préstamo: " + p1.getFecha());
+
+        System.out.println(jorge);
+
+        System.out.println(divina_comedia.estaDisponible());
 
         divina_comedia.devolver();
     }
