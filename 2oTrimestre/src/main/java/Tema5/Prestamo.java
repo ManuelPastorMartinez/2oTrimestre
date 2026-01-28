@@ -16,6 +16,8 @@ public class Prestamo {
         this.estudiante=estudiante;
     }
 
+
+
     public LocalDateTime getFecha() {
         return fecha;
     }

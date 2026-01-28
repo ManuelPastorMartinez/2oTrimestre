@@ -27,11 +27,9 @@ public class EstudianteApp {
         Prestamo p1 = divina_comedia.prestar(jorge);
 
         System.out.println("Fecha préstamo: " + p1.getFecha());
+        System.out.println(jorge.getListaLibros());
 
-        System.out.println(jorge);
 
-        System.out.println(divina_comedia.estaDisponible());
-
-        divina_comedia.devolver();
+        System.out.println("Libros disponibles: "+Libro.getTotalLibros());
     }
 }

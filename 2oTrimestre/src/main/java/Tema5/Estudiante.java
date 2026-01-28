@@ -1,5 +1,7 @@
 package Tema5;
 
+import java.util.ArrayList;
+
 public class Estudiante {
 
     private static final String CORREO_FORMAT="^[A-Za-z0-9+_.-]+@alu.edu.gva.es$";
@@ -9,7 +11,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
-    private Libro libro;
+    private ArrayList<Libro>listaLibros;
 
 
 
@@ -20,7 +22,8 @@ public class Estudiante {
         this.curso=curso;
         this.email=email;
         setNia();
-        libro=null;
+
+        listaLibros=new ArrayList<>();
     }
 
     public Estudiante(String nombre){
@@ -37,6 +40,18 @@ public class Estudiante {
         }else{
             return false;
         }
+    }
+
+    public void insertarLibro (Libro libro){
+        listaLibros.add(libro);
+    }
+
+    public void borrarLibro(Libro libro){
+        listaLibros.remove(libro);
+    }
+
+    public ArrayList<Libro>getListaLibros(){
+        return listaLibros;
     }
 
     public String getNombre() {
@@ -71,14 +86,6 @@ public class Estudiante {
         this.email = email;
     }
 
-    public Libro getLibro() {
-        return libro;
-    }
-
-    public void setLibro(Libro libro) {
-        this.libro = libro;
-    }
-
     @Override
     public String toString(){
         return "Estudiante [" +
@@ -86,7 +93,7 @@ public class Estudiante {
                 " curso = ' "+curso+" ' "+
                 " nia = ' "+nia+" ' "+
                 " email = '"+email+" ' " +
-                " libro = '"+libro.getTitulo()+" '  ]";
+                " libros = '"+listaLibros+" '" +"]";
     }
 
 }
