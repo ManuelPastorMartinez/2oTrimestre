@@ -1,17 +1,21 @@
 package Inmobiliaria;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Casa {
 
-
+    static Scanner teclado = new Scanner(System.in);
 
     private String direccion;
     private ArrayList<Habitacion> listaHabitaciones;
+    private Propietario propietario;
+    private ArrayList<Electrodomestico>listaElectrodomesticos;
 
     public Casa(String direccion){
         this.direccion=direccion;
         listaHabitaciones=new ArrayList<>();
+        setPropietario();
     }
 
     public void crearHabitacion(String nombre, double metros){
@@ -29,11 +33,39 @@ public class Casa {
         System.out.println("Habitacion "+nombre+" creada.");
     }
 
+    public void eliminarHabitacion(String nombre){
+
+
+        for (Habitacion habitacion: listaHabitaciones){
+
+            if (habitacion.getNombre().equals(nombre)){
+                listaHabitaciones.remove(habitacion);
+                System.out.println("Habitación "+nombre+" eliminada con éxito");
+                return;
+            }
+        }
+
+        System.out.println("La habitación "+nombre+" no existe");
+
+    }
+
     public void mostrarHabitacion(){
-        System.out.println("Casa en "+direccion+" tiene "+listaHabitaciones.size()+" habitaciones.");
+        System.out.println("Casa en "+direccion+" y propietario "+ getPropietario().getNombre()+" tiene "+listaHabitaciones.size()+" habitaciones.");
         for (Habitacion habitacion: listaHabitaciones){
             System.out.println("- "+ habitacion.getNombre()+" ("+habitacion.getMetros()+") m2");
         }
+    }
+
+    public Electrodomestico getHabitacionMayorConsumo(){
+
+        Electrodomestico masConsumo = listaElectrodomesticos.get(0);
+        for (Electrodomestico electrodomestico: listaElectrodomesticos){
+            if (electrodomestico.getConsumo()>masConsumo.getConsumo()){
+                masConsumo=electrodomestico;
+            }
+        }
+
+        return masConsumo;
     }
 
     public Habitacion getHabitacionMasGrande(){
@@ -48,6 +80,22 @@ public class Casa {
 
         return mayor;
     }
+
+    public Propietario getPropietario(){
+        return propietario;
+    }
+
+    public void setPropietario(){
+        System.out.println("Introduce el nombre del propietario");
+        String nombre = teclado.next();
+        System.out.print("Edad:");
+        int edad = teclado.nextInt();
+        teclado.nextLine();
+        Propietario propietario = new Propietario(nombre, edad);
+        this.propietario= propietario;
+        System.out.println("Propietario " +nombre+" añadido.");
+    }
+
 
     public String getDireccion() {
         return direccion;
@@ -69,6 +117,7 @@ public class Casa {
     public String toString() {
         return "Casa{" +
                 "direccion='" + direccion + '\'' +
+                "propietario='"+propietario+'\''+
                 '}';
     }
 
