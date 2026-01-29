@@ -1,4 +1,6 @@
-package Tema5;
+package Biblio;
+
+import Tema5.Prestamo;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,8 @@
 package Tema5;
 
+import Biblio.Estudiante;
+import Biblio.Libro;
+
 import java.time.LocalDateTime;
 
 public class Prestamo {

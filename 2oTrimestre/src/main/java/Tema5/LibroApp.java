@@ -1,5 +1,8 @@
 package Tema5;
 
+import Biblio.Editorial;
+import Biblio.Libro;
+
 public class LibroApp {
     public static void main(String[] args) {
 
