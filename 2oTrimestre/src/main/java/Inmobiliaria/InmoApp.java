@@ -17,9 +17,12 @@ public class InmoApp {
         pisito.mostrarHabitacion();
         System.out.println("La habitación más grande es "+pisito.getHabitacionMasGrande().getNombre());
 
-        pisito.eliminarHabitacion("baño");
-        pisito.mostrarHabitacion();
-        pisito.eliminarHabitacion("baño");
 
+
+        pisito.getListaHabitaciones().get(2).agregarElectrodomestico("aspiradora",34.6);
+        pisito.getListaHabitaciones().get(0).agregarElectrodomestico("rumba",53.5);
+        pisito.getListaHabitaciones().get(2).agregarElectrodomestico("freidora",43.6);
+
+        pisito.getHabitacionMayorConsumo();
     }
 }

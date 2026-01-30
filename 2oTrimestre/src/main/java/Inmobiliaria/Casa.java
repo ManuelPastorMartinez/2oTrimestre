@@ -10,12 +10,13 @@ public class Casa {
     private String direccion;
     private ArrayList<Habitacion> listaHabitaciones;
     private Propietario propietario;
-    private ArrayList<Electrodomestico>listaElectrodomesticos;
+
 
     public Casa(String direccion){
         this.direccion=direccion;
-        listaHabitaciones=new ArrayList<>();
+        this.listaHabitaciones=new ArrayList<>();
         setPropietario();
+
     }
 
     public void crearHabitacion(String nombre, double metros){
@@ -56,16 +57,16 @@ public class Casa {
         }
     }
 
-    public Electrodomestico getHabitacionMayorConsumo(){
+    public void getHabitacionMayorConsumo(){
 
-        Electrodomestico masConsumo = listaElectrodomesticos.get(0);
-        for (Electrodomestico electrodomestico: listaElectrodomesticos){
-            if (electrodomestico.getConsumo()>masConsumo.getConsumo()){
-                masConsumo=electrodomestico;
+        Habitacion masConsumo = listaHabitaciones.get(0);
+        for (Habitacion habitacion: listaHabitaciones){
+            if (masConsumo.calcularConsumo()<habitacion.calcularConsumo()){
+                masConsumo= habitacion;
             }
         }
 
-        return masConsumo;
+        System.out.println("La habitación con más consumo es "+masConsumo+" con "+ masConsumo.calcularConsumo()+" kWh");
     }
 
     public Habitacion getHabitacionMasGrande(){

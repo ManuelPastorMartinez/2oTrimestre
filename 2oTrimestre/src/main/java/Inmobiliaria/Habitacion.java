@@ -12,7 +12,7 @@ public class Habitacion {
     public Habitacion(String nombre, double metros){
         this.nombre=nombre;
         this.metros=metros;
-        listaElectrodomestico= new ArrayList<>();
+        this.listaElectrodomestico= new ArrayList<>();
     }
 
     public void agregarElectrodomestico(String nombre, double consumo){
@@ -26,7 +26,7 @@ public class Habitacion {
 
         Electrodomestico electrodomestico= new Electrodomestico(nombre,consumo);
         listaElectrodomestico.add(electrodomestico);
-        System.out.println("El electrodoméstico "+nombre+" ha sido creado");
+        System.out.println("El electrodoméstico "+nombre+" ha sido creado en "+getNombre());
     }
 
     public double calcularConsumo(){
