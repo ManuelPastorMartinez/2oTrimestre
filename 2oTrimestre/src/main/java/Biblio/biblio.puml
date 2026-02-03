@@ -1,0 +1,83 @@
+@startuml
+
+package Biblio {
+
+ class Editorial {
+        - editorial : String
+        - Pais : String
+        - listaLibros : ArrayList<Libro>
+        + insertarLibro(libro : Libro) : void
+        + borrarLibro(libro : Libro) : void
+        + toString() : String
+    }
+
+    class Estudiante {
+        - CORREO_FORMAT : String <<static>>
+        - contador_estudiantes : int <<static>>
+        - nombre : String
+        - curso : String
+        - nia : int
+        - email : String
+        - listaLibros : ArrayList<Libro>
+
+
+        + obtenerTotalEstudiantes() : int <<static>>
+        + validarCorreo(correo : String) : boolean <<static>>
+        + insertarLibro(libro : Libro) : void
+        + borrarLibro(libro : Libro) : void
+        + toString() : String
+    }
+
+
+
+    class Libro {
+        - DEF_LIBRO_PRESTADO : int <<static>>
+        - DEF_LIBRO_SIN_PRESTAR : int <<static>>
+        - contadorLibrosDisponibles : int <<static>>
+        - contadorCantidadLibros : int <<static>>
+        - CADENA_ID : String <<static>>
+        - id : String
+        - titulo : String
+        - autor : String
+        - disponible : boolean
+        - cantidadLibros : int <<static>>
+        - librosDisponibles : int <<static>>
+        - estudiantePrestado : Estudiante
+        - editorial : Editorial
+        - listaLibros : ArrayList<Libro>
+
+
+        - generarId() : String
+        + estaDisponible() : boolean
+        + prestar(estudiante : Estudiante) : Prestamo
+        + devolver() : void
+        + toString() : String
+    }
+
+    class Prestamo {
+        - libro : Libro
+        - estudiante : Estudiante
+        - fecha : LocalDateTime
+
+        + toString() : String
+    }
+
+    class Editorial {
+        - editorial : String
+        - Pais : String
+        - listaLibros : ArrayList<Libro>
+
+        + Editorial(editorial : String, pais : String)
+        + Editorial()
+        + insertarLibro(libro : Libro) : void
+        + borrarLibro(libro : Libro) : void
+        + toString() : String
+    }
+}
+
+Estudiante "1" -- "*" Libro: >
+Libro "*" -- "1" Editorial: pertenece a >
+Prestamo "1" o--> "1" Libro
+Prestamo "1" o--> "1" Estudiante
+
+@enduml

@@ -1,7 +1,4 @@
-package Tema5;
-
-import Biblio.Estudiante;
-import Biblio.Libro;
+package Biblio;
 
 import java.time.LocalDateTime;
 

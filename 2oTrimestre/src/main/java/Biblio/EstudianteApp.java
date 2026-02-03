@@ -1,7 +1,5 @@
 package Biblio;
 
-import Tema5.Prestamo;
-
 public class EstudianteApp {
     public static void main(String[] args) {
 

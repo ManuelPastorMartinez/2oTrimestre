@@ -1,7 +1,5 @@
 package Biblio;
 
-import Tema5.Prestamo;
-
 import java.util.ArrayList;
 
 public class Libro {
