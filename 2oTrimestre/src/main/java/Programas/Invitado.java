@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Invitado {
     static Scanner teclado =new Scanner(System.in);
+
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
@@ -57,5 +58,13 @@ public class Invitado {
         this.temporada = temporada;
     }
 
-
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                "nombre='" + nombre + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", fecha_visita=" + fecha_visita +
+                ", temporada=" + temporada +
+                '}';
+    }
 }

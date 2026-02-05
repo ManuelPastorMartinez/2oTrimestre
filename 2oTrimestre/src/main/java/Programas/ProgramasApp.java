@@ -10,12 +10,12 @@ public class ProgramasApp {
         System.out.println(el_hormiguero);
         System.out.println(antena3);
         //insertamos empleados en el programa
-        el_hormiguero.añadirEmpleado("Pablo Motos","presentador");
+        el_hormiguero.anyadirEmpleado("Pablo Motos","presentador");
         System.out.println(el_hormiguero);
         //ver empleados del programa
         System.out.println(el_hormiguero.getListaEmpleados());
         //insertamos invitados en el programa
-        el_hormiguero.añadirInvitado("Aitana","cantante",1);
+        el_hormiguero.anyadirInvitado("Aitana","cantante",1);
         //ver invitados del programa
         System.out.println(el_hormiguero.getListaInvitados());
 

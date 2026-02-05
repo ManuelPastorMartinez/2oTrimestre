@@ -3,6 +3,7 @@ package Programas;
 import java.util.ArrayList;
 
 public class Cadena {
+
     private String nombre;
     private ArrayList<Programa>listaProgramas;
 
@@ -26,5 +27,11 @@ public class Cadena {
         this.listaProgramas = listaProgramas;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cadena{" +
+                "nombre='" + nombre + '\'' +
+                ", listaProgramas=" + listaProgramas +
+                '}';
+    }
 }

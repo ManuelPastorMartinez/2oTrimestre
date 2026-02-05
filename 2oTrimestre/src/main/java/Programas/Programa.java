@@ -22,18 +22,21 @@ public class Programa {
         this.director=new Empleado(nombre,"director",null);
     }
 
-    public void añadirEmpleado(String nombre,String cargo){
+    public void anyadirEmpleado(String nombre,String cargo){
         listaEmpleados.add(new Empleado(nombre,cargo,director));
     }
 
-    public void añadirInvitado(String nombre,String profesion,int temporadas){
+    public void anyadirInvitado(String nombre,String profesion,int temporadas){
         listaInvitados.add(new Invitado(nombre,profesion,temporadas));
     }
 
     public void invitadosTemporada(int temporada){
 
+        System.out.println("Hay "+listaInvitados.size()+" invitados:");
         for (Invitado invitado:listaInvitados){
-            System.out.println("Ha ido al programa "+);
+            if (temporada==invitado.getTemporada()){
+                System.out.println(invitado.getNombre()+" que trabaja de "+invitado.getProfesion());
+            }
         }
     }
     public String getNombre() {
@@ -80,5 +83,15 @@ public class Programa {
         this.listaInvitados = listaInvitados;
     }
 
-
+    @Override
+    public String toString() {
+        return "Programa{" +
+                "nombre='" + nombre + '\'' +
+                ", cadena=" + cadena +
+                ", temporadas=" + temporadas +
+                ", listaEmpleados=" + listaEmpleados +
+                ", listaInvitados=" + listaInvitados +
+                ", director=" + director +
+                '}';
+    }
 }

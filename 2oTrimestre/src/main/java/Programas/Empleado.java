@@ -69,5 +69,13 @@ public class Empleado {
         this.director = director;
     }
 
-
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", director=" + director +
+                '}';
+    }
 }
