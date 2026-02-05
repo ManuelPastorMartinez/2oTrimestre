@@ -25,6 +25,17 @@ public class Programa {
     public void añadirEmpleado(String nombre,String cargo){
         listaEmpleados.add(new Empleado(nombre,cargo,director));
     }
+
+    public void añadirInvitado(String nombre,String profesion,int temporadas){
+        listaInvitados.add(new Invitado(nombre,profesion,temporadas));
+    }
+
+    public void invitadosTemporada(int temporada){
+
+        for (Invitado invitado:listaInvitados){
+            System.out.println("Ha ido al programa "+);
+        }
+    }
     public String getNombre() {
         return nombre;
     }
