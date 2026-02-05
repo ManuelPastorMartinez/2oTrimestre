@@ -3,7 +3,7 @@ package Insti;
 public class InstitutoApp {
 
     public static void main(String[] args) {
-        Instituto instituto = new Instituto("IES MUTXAMEL");
+        Instituto instituto = new Instituto();
         //crear cursos
         Curso cursoJava = new Curso("Java", 100);
         Curso cursoPython = new Curso("Python", 70);

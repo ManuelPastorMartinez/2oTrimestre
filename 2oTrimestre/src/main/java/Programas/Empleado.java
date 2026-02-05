@@ -1,7 +1,7 @@
 package Programas;
 
 public class Empleado {
-
+    private static final String DEF_CARGO ="pte";
     private static final String CADENA_ID="EP";
     private static int contadorCantidadEmpleados=0;
 
@@ -11,11 +11,15 @@ public class Empleado {
     private String cargo;
     private Empleado director;
 
-    public Empleado(String nombre,String cargo){
+    public Empleado(String nombre,String cargo,Empleado director){
         this.nombre=nombre;
-        this.cargo=cargo;
+        setCargo(cargo);
         id=generarId();
+        this.director=director;
+    }
 
+    public Empleado(){
+       cargo=DEF_CARGO;
     }
 
     private String generarId(){
@@ -34,6 +38,14 @@ public class Empleado {
         return nombre;
     }
 
+    private String validarCargo(String cargo){
+        if (cargo.equals("director")||cargo.equals("técnico")||cargo.equals("presentador")||cargo.equals("colaborador")){
+            return cargo;
+        }else {
+            return DEF_CARGO;
+        }
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -43,7 +55,7 @@ public class Empleado {
     }
 
     public void setCargo(String cargo) {
-        this.cargo = cargo;
+        this.cargo = validarCargo(cargo);
     }
     public void setCantidadEmpleados(){
         cantidadEmpleados=++contadorCantidadEmpleados;
