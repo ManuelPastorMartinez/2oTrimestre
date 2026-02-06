@@ -92,13 +92,13 @@ public class BancoApp {
         System.out.println("Cliente no encontrado");
     }
 
-    public void listarClientes(){
+    public static void listarClientes(){
         for (Cliente cliente : listaClientes){
             System.out.println(cliente);
         }
     }
 
-    public void modificarCliente(){
+    public static void modificarCliente(){
         listarClientes();
         System.out.print("ID del cliente: ");
         int id = teclado.nextInt();
