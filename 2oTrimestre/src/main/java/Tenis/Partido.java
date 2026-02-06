@@ -11,14 +11,14 @@ public class Partido {
     public Partido(Jugador jugador1, Jugador jugador2){
         this.jugador1=jugador1;
         this.jugador2=jugador2;
-        listaSet=new ArrayList<>();
-
+        this.listaSet=new ArrayList<>();
+        jugador1.setRival(jugador2);
+        jugador2.setRival(jugador1);
     }
 
 
 
     public void insertarSet(int puntosJ1, int puntosJ2){
-
         Set set = new Set(puntosJ1,puntosJ2);
         listaSet.add(set);
     }
@@ -45,5 +45,14 @@ public class Partido {
 
     public void setListaSet(ArrayList<Set> listaSet) {
         this.listaSet = listaSet;
+    }
+
+    @Override
+    public String toString() {
+        return "Partido{" +
+                "jugador1=" + jugador1 +
+                ", jugador2=" + jugador2 +
+                ", listaSet=" + listaSet +
+                '}';
     }
 }
