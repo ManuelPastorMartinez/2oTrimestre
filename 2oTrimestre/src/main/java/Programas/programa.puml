@@ -1,0 +1,87 @@
+@startuml
+
+' ===== CLASE PRINCIPAL =====
+class AppProgramas
+
+' ===== CADENA =====
+class Cadena {
+    - nombre : String
+    - listaProgramas : ArrayList<Programa>
+    --
+    + Cadena(nombre : String)
+    + getNombre() : String
+    + setNombre(nombre : String)
+    + getListaProgramas() : ArrayList<Programa>
+    + setListaProgramas(lista : ArrayList<Programa>)
+    + toString() : String
+}
+
+' ===== PROGRAMA =====
+class Programa {
+    - nombre : String
+    - cadena : Cadena
+    - temporadas : int
+    - listaEmpleados : ArrayList<Empleado>
+    - listaInvitados : ArrayList<Invitado>
+    - director : Empleado
+    --
+    + Programa(nombre : String, cadena : Cadena, director : String)
+    + anyadirEmpleado(nombre : String, cargo : String)
+    + anyadirInvitado(nombre : String, profesion : String, temporada : int)
+    + invitadosTemporada(temporada : int)
+    + vecesInvitado(nombre : String) : int
+    + rastrearInvitado(nombre : String)
+    + buscarInvitado(nombre : String) : boolean
+    + invitadoAntes(nombre : String)
+    + get/set...
+    + toString() : String
+}
+
+' ===== EMPLEADO =====
+class Empleado {
+    - id : String
+    - nombre : String
+    - cargo : String
+    - director : Empleado
+    - static cantidadEmpleados : int
+    --
+    + Empleado(nombre : String, cargo : String, director : Empleado)
+    + getId() : String
+    + getNombre() : String
+    + getCargo() : String
+    + getDirector() : Empleado
+    + setCargo(cargo : String)
+    + toString() : String
+}
+
+' ===== INVITADO =====
+class Invitado {
+    - nombre : String
+    - profesion : String
+    - fecha_visita : LocalDate
+    - temporada : int
+    --
+    + Invitado(nombre : String, profesion : String, temporada : int)
+    + getNombre() : String
+    + getProfesion() : String
+    + getFecha_visita() : LocalDate
+    + getTemporada() : int
+    + setFecha_visita()
+    + toString() : String
+}
+
+' ===== RELACIONES =====
+
+' Asociación bidireccional Cadena <--> Programa
+Cadena  o--o  Programa : listaProgramas
+
+' Composición Programa → Empleado
+Programa "1" *-- "*" Empleado : listaEmpleados
+
+' Composición Programa → Invitado
+Programa "1" *-- "*" Invitado : listaInvitados
+
+' Un programa tiene un director (Empleado)
+Programa "1" --> "1" Empleado : director
+
+@enduml

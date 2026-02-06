@@ -8,18 +8,14 @@ public class Programa {
     private int temporadas;
     private ArrayList<Empleado>listaEmpleados;
     private ArrayList<Invitado>listaInvitados;
-
-
-    public void setDirector(Empleado director) {
-        this.director = director;
-    }
-
     private Empleado director;
 
     public Programa(String nombre,Cadena cadena,String director){
         this.nombre=nombre;
         this.cadena=cadena;
-        this.director=new Empleado(nombre,"director",null);
+        this.director=new Empleado("Director1","director",null);
+        listaEmpleados=new ArrayList<>();
+        listaInvitados=new ArrayList<>();
     }
 
     public void anyadirEmpleado(String nombre,String cargo){
@@ -38,6 +34,40 @@ public class Programa {
                 System.out.println(invitado.getNombre()+" que trabaja de "+invitado.getProfesion());
             }
         }
+    }
+
+    public int vecesInvitado(String nombre){
+        int aux = 0;
+        for (Invitado invitado:listaInvitados){
+            if (nombre.equals(invitado.getNombre())){
+                aux++;
+            }
+        }
+        System.out.println("El invitado "+nombre+" ha ido "+aux+" veces al programa");
+        return aux;
+    }
+
+    public void rastrearInvitado(String nombre){
+
+        for (Invitado invitado: listaInvitados){
+            if (invitado.getNombre().equals(nombre)){
+                System.out.println(vecesInvitado(nombre)+" ha venido el "+invitado.getFecha_visita()+" en la temporada "+invitado.getTemporada());
+            }
+        }
+    }
+
+    public boolean buscarInvitado(String nombre){
+
+        for (Invitado invitado : listaInvitados){
+            if (nombre.equals(invitado.getNombre())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void invitadoAntes(String nombre){
+
     }
     public String getNombre() {
         return nombre;
@@ -66,6 +96,9 @@ public class Programa {
         return director;
     }
 
+    public void setDirector(Empleado director) {
+        this.director = director;
+    }
 
     public ArrayList<Empleado> getListaEmpleados() {
         return listaEmpleados;

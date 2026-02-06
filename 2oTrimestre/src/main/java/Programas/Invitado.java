@@ -16,7 +16,7 @@ public class Invitado {
         this.nombre=nombre;
         this.profesion=profesion;
         this.temporada=temporada;
-        setFecha_visita(fecha_visita);
+        setFecha_visita();
     }
 
     public String getNombre() {
@@ -40,7 +40,7 @@ public class Invitado {
         return fecha_visita;
     }
 
-    public void setFecha_visita(LocalDate fecha_visita) {
+    public void setFecha_visita() {
         System.out.println("Introduce el año de visita");
         int anyo_visita=teclado.nextInt();
         System.out.println("Introduce el mes de la visita");
