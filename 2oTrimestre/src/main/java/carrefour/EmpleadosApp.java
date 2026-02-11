@@ -28,5 +28,20 @@ public class EmpleadosApp {
         listaEmpleados.add(manuel);
         listaEmpleados.add(carlos);
         listaEmpleados.add(jorge);
+
+
+        for (Persona persona:listaEmpleados){
+
+
+        }
+
+        fichar(manuel);
+        fichar(carlos);
+        fichar(jorge);
+    }
+
+    public static void fichar(Persona persona){
+        System.out.println("Fichando...");
+
     }
 }
