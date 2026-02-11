@@ -18,9 +18,16 @@ public class Influencer extends Usuario {
         this.colaboraciones = colaboraciones;
     }
 
+    public void crearColaboraciones(String colaboracion){
+        colaboraciones.add(colaboracion);
+    }
     @Override
     public void mostrarInfo(){
         super.mostrarInfo();
+        System.out.println("Colaboraciones: ");
+        for (String colabo:colaboraciones){
+            System.out.println(colabo);
+        }
     }
 
     @Override

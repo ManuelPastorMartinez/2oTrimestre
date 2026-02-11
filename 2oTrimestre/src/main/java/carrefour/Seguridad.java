@@ -41,7 +41,7 @@ public class Seguridad extends Persona{
         System.out.println("La empresa de donde viene el de seguridad es "+empresa);
         System.out.println("Las armas que tiene son: ");
         for (String arma : armas ){
-            System.out.println(arma);
+            System.out.print(arma);
         }
     }
 

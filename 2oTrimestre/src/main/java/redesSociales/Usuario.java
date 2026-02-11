@@ -46,7 +46,10 @@ public class Usuario {
     }
 
     public void mostrarInfo(){
-        System.out.println("El streamer "+nombre_usuario+" de nombre real "+nombre+" tiene "+edad+" años y "+seguidores+" seguidores");
+        System.out.println("Nombre: "+nombre);
+        System.out.println("Edad: "+edad);
+        System.out.println("Nombre de usuario: "+nombre_usuario);
+        System.out.println("Seguidores: "+seguidores);
     }
 
     @Override

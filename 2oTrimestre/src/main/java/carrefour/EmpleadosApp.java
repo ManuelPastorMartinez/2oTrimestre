@@ -1,5 +1,7 @@
 package carrefour;
 
+import java.util.ArrayList;
+
 public class EmpleadosApp {
 
     public static void main(String[] args) {
@@ -18,5 +20,13 @@ public class EmpleadosApp {
         carlos.insertarArmas("Yorch");
 
         carlos.mostrarInfo();
+
+        Persona manuel = new Cajero(1232,"Manuel",2000);
+
+        ArrayList<Persona> listaEmpleados = new ArrayList<>();
+
+        listaEmpleados.add(manuel);
+        listaEmpleados.add(carlos);
+        listaEmpleados.add(jorge);
     }
 }
