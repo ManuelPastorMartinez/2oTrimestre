@@ -38,6 +38,10 @@ public class EmpleadosApp {
         fichar(manuel);
         fichar(carlos);
         fichar(jorge);
+
+        jorge.trabajar();
+        joaquin.trabajar();
+        carlos.trabajar();
     }
 
     public static void fichar(Persona persona){
