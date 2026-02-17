@@ -1,12 +1,46 @@
 package dispositivos_inteligentes;
 
-abstract class Dispositivos {
-    private String nombre;
-    private boolean estado;
+abstract class Dispositivo {
+    protected String nombre;
+    protected boolean estado;
 
-    abstract public void encender();
+    public Dispositivo(String nombre){
+        this.nombre=nombre;
+        estado=false;
+    }
 
-    abstract public void apagar();
+     public abstract void encender();
 
-    abstract public void mostrarEstado();
+    public void apagar(){
+        if (estado){
+            estado=false;
+            System.out.println(nombre+" apagado");
+        }else {
+            System.out.println(nombre+" ya está apagado");
+        }
+    }
+
+    public void mostrarEstado(){
+        if (estado){
+            System.out.println(nombre+" encendido");
+        }else {
+            System.out.println(nombre+"apagado");
+        }
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 }

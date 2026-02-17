@@ -1,4 +1,4 @@
 package interfaces;
 
-public class Superheroes {
+public class Superheroe {
 }

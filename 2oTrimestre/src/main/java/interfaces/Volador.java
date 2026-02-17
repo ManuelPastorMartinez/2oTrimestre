@@ -1,4 +1,6 @@
 package interfaces;
 
-public class Volador {
+public interface Volador {
+
+    public void volar();
 }
