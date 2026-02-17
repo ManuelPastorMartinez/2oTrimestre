@@ -5,7 +5,7 @@
 - Diagrama de clases UML
 - Código de UML
 - Contenido de clases (.java)
-4. [Programa principal (InmoApp)](#3-programa-principal)
+4. [Programa principal (CommerceApp)](#3-programa-principal)
 5. [pruebas](#4-pruebas)
 6. [Entrega](#5-Entrega)
 
