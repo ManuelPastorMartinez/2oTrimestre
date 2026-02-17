@@ -8,20 +8,45 @@ public class TarjetaCredito extends MetodoPago{
 
     private String nro_tarjeta;
     private String tipo;
-    private ArrayList<String>tiposValidos = new ArrayList<>();
+    private static String tipoValido[] = {"VISA","MASTERCARD","MAESTRO"};
 
     public TarjetaCredito(String nro_tarjeta, String tipo) {
         this.nro_tarjeta = nro_tarjeta;
         this.tipo = tipo;
     }
 
-    public void validarTarjeta(){
+    public boolean validarTarjeta(){
+        boolean validar=false;
         if (!nro_tarjeta.matches(FORMATO_TARJETA)){
-            System.out.println("Formato de tarjeta incorrecto ");
-            return;
+            validar=false;
         }else {
-
+            for (String tipo : tipoValido){
+                if (getTipo().toUpperCase().equals(tipo)){
+                    validar=true;
+                    break;
+                }
+            }
         }
+
+
+        return validar;
+
+    }
+
+    public String getNro_tarjeta() {
+        return nro_tarjeta;
+    }
+
+    public void setNro_tarjeta(String nro_tarjeta) {
+        this.nro_tarjeta = nro_tarjeta;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override

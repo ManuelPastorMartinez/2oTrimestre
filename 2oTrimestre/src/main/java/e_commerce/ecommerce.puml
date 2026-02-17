@@ -1,0 +1,42 @@
+@startuml
+
+abstract class MetodoPago {
+    +procesarPago(double)
+}
+
+class TarjetaCredito {
+    -nro_tarjeta : String
+    -tipo : String
+    +validarTarjeta() : boolean
+    +procesarPago(double)
+}
+
+class PayPal {
+    -cuenta : String
+    -saldo : double
+    +validarPayPal(double) : boolean
+    +procesarPago(double)
+}
+
+class Bizum {
+    -telefono : String
+    -pin : int
+    +validarBizum(int) : boolean
+    +procesarPago(double)
+}
+
+class Tienda {
+    +iniciarPago()
+    +realizarPago(MetodoPago)
+}
+
+class AppEcommerce
+
+MetodoPago <|-- TarjetaCredito
+MetodoPago <|-- PayPal
+MetodoPago <|-- Bizum
+
+Tienda --> MetodoPago
+AppEcommerce --> Tienda
+
+@enduml

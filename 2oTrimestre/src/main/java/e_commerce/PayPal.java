@@ -2,31 +2,35 @@ package e_commerce;
 
 public class PayPal extends MetodoPago{
 
-    private static final String FORMATO_CORREO = "^[A-Za-z0-9+_.-]+@+[A-Za-z0-9+_.-]+.com$";
+    private static final String FORMATO_CUENTA = "^[A-Za-z0-9+_.-]+@gmail.com";
 
-    private String correo;
+    private String cuenta;
     private double saldo=23;
 
-    public PayPal(String correo,double saldo){
-        this.correo=correo;
-        this.saldo=saldo;
+    public PayPal(String cuenta){
+        this.cuenta = cuenta;
     }
 
-    public void validarPayPal(){
-        if (!correo.matches(FORMATO_CORREO)){
+    public boolean validarPayPal(double importe){
+        if (!cuenta.matches(FORMATO_CUENTA)){
             System.out.println("Formato de correo incorrecto, introduce un correo electrónico válido");
-            return;
+            return false;
         }
 
-        
+        if (saldo<importe){
+            System.out.println("No tienes suficiente crédito para realizar este trámite");
+            return false;
+        }
+
+        return true;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getCuenta() {
+        return cuenta;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
     }
 
     public double getSaldo() {
