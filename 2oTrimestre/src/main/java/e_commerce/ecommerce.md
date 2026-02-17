@@ -66,390 +66,289 @@ AppEcommerce --> Tienda
 
 ````
 #### Contenido de las clases (.java)
-- Clase **java.java**
-package Programas;
+- Clase **MetodoPago.java**
+package e_commerce;
+
+public abstract class MetodoPago {
+
+    public abstract void procesarPago(double importe);
+}
+
+- Clase **Bizum.java**
+package e_commerce;
+
+import java.util.Random;
+
+public class Bizum extends MetodoPago{
+
+    private static final String  FORMATO_TELEFONO= "\\d{9}";
+
+    private String telefono;
+    private int pin;
+
+    public Bizum(String telefono){
+        this.telefono=telefono;
+        this.pin = generarPin();
+        System.out.println("Pin generado: "+pin);
+    }
+
+    private int generarPin(){
+
+        Random random = new Random();
+
+        return random.nextInt(100000,999999);
+    }
+
+
+
+    public boolean validarBizum(int pinIntroducido){
+
+        if (!telefono.matches(FORMATO_TELEFONO)){
+            System.out.println("Formato de telefono incorrecto, por favor introduce un teléfono correcto");
+            return false;
+        }
+
+        if (pinIntroducido !=pin){
+            System.out.println("Pin incorrecto");
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void procesarPago(double importe) {
+        System.out.println("Procesando pago de "+importe+"€ con bizum");
+    }
+}
+
+- Clase **PayPal.java**
+package e_commerce;
+
+public class PayPal extends MetodoPago{
+
+    private static final String FORMATO_CUENTA = "^[A-Za-z0-9+_.-]+@gmail.com";
+
+    private String cuenta;
+    private double saldo=23;
+
+    public PayPal(String cuenta){
+        this.cuenta = cuenta;
+    }
+
+    public boolean validarPayPal(double importe){
+        if (!cuenta.matches(FORMATO_CUENTA)){
+            System.out.println("Formato de correo incorrecto, introduce un correo electrónico válido");
+            return false;
+        }
+
+        if (saldo<importe){
+            System.out.println("No tienes suficiente crédito para realizar este trámite");
+            return false;
+        }
+
+        return true;
+    }
+
+    public String getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo=saldo;
+    }
+
+    @Override
+    public void procesarPago(double importe) {
+        System.out.println("Procesando pago de "+importe+"€ con PayPal");
+    }
+}
+
+- Clase **TarjetaCredito.java**
+package e_commerce;
 
 import java.util.ArrayList;
 
-public class Cadena {
+public class TarjetaCredito extends MetodoPago{
 
-    private String nombre;
-    private ArrayList<Programa>listaProgramas;
+    private static final String FORMATO_TARJETA="\\d{16}";
 
-    public Cadena(String nombre){
-        this.nombre=nombre;
-        listaProgramas=new ArrayList<>();
-    }
-    public String getNombre() {
-        return nombre;
-    }
+    private String nro_tarjeta;
+    private String tipo;
+    private static String tipoValido[] = {"VISA","MASTERCARD","MAESTRO"};
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public TarjetaCredito(String nro_tarjeta, String tipo) {
+        this.nro_tarjeta = nro_tarjeta;
+        this.tipo = tipo;
     }
 
-    public ArrayList<Programa> getListaProgramas() {
-        return listaProgramas;
-    }
-
-    public void setListaProgramas(ArrayList<Programa> listaProgramas) {
-        this.listaProgramas = listaProgramas;
-    }
-
-    @Override
-    public String toString() {
-        return "Cadena{" +
-                "nombre='" + nombre + '\'' +
-                ", listaProgramas=" + listaProgramas +
-                '}';
-    }
-}
-
-package Programas;
-
-public class Empleado {
-    private static final String DEF_CARGO ="pte";
-    private static final String CADENA_ID="EP0";
-    private static int contadorCantidadEmpleados=0;
-
-    private String id;
-    private String nombre;
-    private static int cantidadEmpleados=0;
-    private String cargo;
-    private Empleado director;
-
-    public Empleado(String nombre,String cargo,Empleado director){
-        this.nombre=nombre;
-        setCargo(cargo);
-        id=generarId();
-        setCantidadEmpleados();
-        this.director=director;
-    }
-
-    public Empleado(){
-       cargo=DEF_CARGO;
-    }
-
-    private String generarId(){
-        return CADENA_ID+cantidadEmpleados;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    private String validarCargo(String cargo){
-        if (cargo.equals("director")||cargo.equals("técnico")||cargo.equals("presentador")||cargo.equals("colaborador")){
-            return cargo;
+    public boolean validarTarjeta(){
+        boolean validar=false;
+        if (!nro_tarjeta.matches(FORMATO_TARJETA)){
+            validar=false;
         }else {
-            return DEF_CARGO;
+            for (String tipo : tipoValido){
+                if (getTipo().toUpperCase().equals(tipo)){
+                    validar=true;
+                    break;
+                }
+            }
         }
+
+
+        return validar;
+
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getNro_tarjeta() {
+        return nro_tarjeta;
     }
 
-    public String getCargo() {
-        return cargo;
+    public void setNro_tarjeta(String nro_tarjeta) {
+        this.nro_tarjeta = nro_tarjeta;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = validarCargo(cargo);
+    public String getTipo() {
+        return tipo;
     }
 
-    public static int getCantidadEmpleados() {
-        return cantidadEmpleados;
-    }
-
-    public void setCantidadEmpleados(){
-        cantidadEmpleados = ++contadorCantidadEmpleados;
-    }
-
-
-    public Empleado getDirector() {
-        return director;
-    }
-
-    public void setDirector(Empleado director) {
-        this.director = director;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
-    public String toString() {
-        return "Empleado{" +
-                "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", cargo='" + cargo + '\'' +
-                ", director=" + director +
-                '}';
+    public void procesarPago(double importe) {
+        System.out.println("Procesando pago de "+importe+" con tarjeta de crédito "+tipo);
     }
 }
 
-package Programas;
+- Clase **Tienda.java**
+package e_commerce;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class Invitado {
-    static Scanner teclado =new Scanner(System.in);
+public class Tienda{
+    static Scanner teclado = new Scanner(System.in);
 
-    private String nombre;
-    private String profesion;
-    private LocalDate fecha_visita;
-    private int temporada;
+    static void iniciarPago(){
+        System.out.println("Que método quieres utilizar?");
+        System.out.println("1- Tarjeta de crédito");
+        System.out.println("2- PayPal");
+        System.out.println("3- Bizum");
+        String metodo = teclado.next();
 
-    public Invitado(String nombre,String profesion,int temporada){
-        this.nombre=nombre;
-        this.profesion=profesion;
-        this.temporada=temporada;
-        setFecha_visita();
-    }
 
-    public String getNombre() {
-        return nombre;
+        switch (metodo.toLowerCase()){
+            case "tarjeta":
+                System.out.println("Número de tarjeta (16 dígitos)");
+                String numero = teclado.next();
 
-    }
+                System.out.println("Tipo de tarjeta (VISA, MASTERCARD, MAESTRO)");
+                String tipo = teclado.next();
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+                TarjetaCredito tarjeta = new TarjetaCredito(numero,tipo);
 
-    public String getProfesion() {
-        return profesion;
-    }
+                if (tarjeta.validarTarjeta()){
+                    realizarPago(tarjeta);
+                }else {
+                    System.out.println("Tipo de tarjeta incorrecto");
+                }
 
-    public void setProfesion(String profesion) {
-        this.profesion = profesion;
-    }
+                break;
+            case "paypal":
+                System.out.println("Email PayPal: ");
+                String email = teclado.next();
 
-    public LocalDate getFecha_visita() {
-        return fecha_visita;
-    }
+                PayPal paypal = new PayPal(email);
 
-    public void setFecha_visita() {
-        System.out.println("Introduce el año de visita");
-        int anyo_visita=teclado.nextInt();
-        System.out.println("Introduce el mes de la visita");
-        int mes_visita=teclado.nextInt();
-        System.out.println("Introduce el dia de la visita");
-        int dia_visita=teclado.nextInt();
-        fecha_visita=LocalDate.of(anyo_visita,mes_visita,dia_visita);
-    }
+                System.out.println("Importe: ");
+                double importeIntroducido = teclado.nextDouble();
 
-    public int getTemporada() {
-        return temporada;
-    }
+                if (paypal.validarPayPal(importeIntroducido)){
+                    paypal.procesarPago(importeIntroducido);
+                }
+                break;
 
-    public void setTemporada(int temporada) {
-        this.temporada = temporada;
-    }
+            case "bizum":
+                System.out.print("Teléfono (9 dígitos): ");
+                String telefono = teclado.next();
+                Bizum bizum = new Bizum(telefono);
 
-    @Override
-    public String toString() {
-        return "Invitado{" +
-                "nombre='" + nombre + '\'' +
-                ", profesion='" + profesion + '\'' +
-                ", fecha_visita=" + fecha_visita +
-                ", temporada=" + temporada +
-                '}';
-    }
-}
-package Programas;
+                System.out.print("Introduce el PIN: ");
+                int pin = teclado.nextInt();
 
-import java.util.ArrayList;
+                if (bizum.validarBizum(pin)) {
+                    realizarPago(bizum);
+                }
+                break;
 
-public class Programa {
-    private String nombre;
-    private Cadena cadena;
-    private int temporadas;
-    private ArrayList<Empleado>listaEmpleados;
-    private ArrayList<Invitado>listaInvitados;
-    private Empleado director;
+            default:
+                System.out.println("Método no válido.");
 
-    public Programa(String nombre,Cadena cadena,String director){
-        this.nombre=nombre;
-        this.cadena=cadena;
-        this.director=new Empleado("Director1","director",null);
-        listaEmpleados=new ArrayList<>();
-        listaInvitados=new ArrayList<>();
-    }
-
-    public void anyadirEmpleado(String nombre,String cargo){
-        listaEmpleados.add(new Empleado(nombre,cargo,director));
-    }
-
-    public void anyadirInvitado(String nombre,String profesion,int temporadas){
-        listaInvitados.add(new Invitado(nombre,profesion,temporadas));
-    }
-
-    public void invitadosTemporada(int temporada){
-
-        System.out.println("Hay "+listaInvitados.size()+" invitados:");
-        for (Invitado invitado:listaInvitados){
-            if (temporada==invitado.getTemporada()){
-                System.out.println(invitado.getNombre()+" que trabaja de "+invitado.getProfesion());
-            }
         }
     }
 
-    public int vecesInvitado(String nombre){
-        int aux = 0;
-        for (Invitado invitado:listaInvitados){
-            if (nombre.equals(invitado.getNombre())){
-                aux++;
-            }
-        }
-        System.out.println("El invitado "+nombre+" ha ido "+aux+" veces al programa");
-        return aux;
-    }
 
-    public void rastrearInvitado(String nombre){
+    static void realizarPago(MetodoPago metodo){
 
-        for (Invitado invitado: listaInvitados){
-            if (invitado.getNombre().equals(nombre)){
-                System.out.println(vecesInvitado(nombre)+" ha venido el "+invitado.getFecha_visita()+" en la temporada "+invitado.getTemporada());
-            }
-        }
-    }
+        System.out.println("Introduce importe: ");
+        double importe = teclado.nextDouble();
 
-    public boolean buscarInvitado(String nombre){
-
-        for (Invitado invitado : listaInvitados){
-            if (nombre.equals(invitado.getNombre())){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void invitadoAntes(String nombre){
-
-    }
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Cadena getCadena() {
-        return cadena;
-    }
-
-    public void setCadena(Cadena cadena) {
-        this.cadena = cadena;
-    }
-
-    public int getTemporadas() {
-        return temporadas;
-    }
-
-    public void setTemporadas(int temporadas) {
-        this.temporadas = temporadas;
-    }
-    public Empleado getDirector() {
-        return director;
-    }
-
-    public void setDirector(Empleado director) {
-        this.director = director;
-    }
-
-    public ArrayList<Empleado> getListaEmpleados() {
-        return listaEmpleados;
-    }
-
-    public void setListaEmpleados(ArrayList<Empleado> listaEmpleados) {
-        this.listaEmpleados = listaEmpleados;
-    }
-
-    public ArrayList<Invitado> getListaInvitados() {
-        return listaInvitados;
-    }
-
-    public void setListaInvitados(ArrayList<Invitado> listaInvitados) {
-        this.listaInvitados = listaInvitados;
-    }
-
-    @Override
-    public String toString() {
-        return "Programa{" +
-                "nombre='" + nombre + '\'' +
-                ", cadena=" + cadena +
-                ", temporadas=" + temporadas +
-                ", listaEmpleados=" + listaEmpleados +
-                ", listaInvitados=" + listaInvitados +
-                ", director=" + director +
-                '}';
+        metodo.procesarPago(importe);
     }
 }
 
-}
-[Link a la clase Programa en *GitHub*](https://github.com/ManuelPastorMartinez/2oTrimestre/tree/main/2oTrimestre/src/main/java/Programas)
+[Link a las clases de ecommerce en *GitHub*](https://github.com/ManuelPastorMartinez/2oTrimestre/tree/main/2oTrimestre/src/main/java/e_commerce)
 
-### 3. Programa principal (ProgramasApp)
-````package Programas;
+### 3. Programa principal (CommerceApp)
+````
+package e_commerce;
 
-public class ProgramasApp {
-    public static void main (String[] args){
-        //creamos una cadena de tv
-        Cadena antena3 = new Cadena("Antena 3");
-        System.out.println(antena3);
-        //creamos un programa
-        Programa el_hormiguero = new Programa("El Hormiguero",antena3,"Director1");
-        System.out.println(el_hormiguero);
-        System.out.println(antena3);
-        //insertamos empleados en el programa
-        el_hormiguero.anyadirEmpleado("Pablo Motos","presentador");
-        System.out.println(el_hormiguero);
-        //ver empleados del programa
-        System.out.println(el_hormiguero.getListaEmpleados());
-        //insertamos invitados en el programa
-        el_hormiguero.anyadirInvitado("Aitana","cantante",1);
-        //ver invitados del programa
-        System.out.println(el_hormiguero.getListaInvitados());
+public class CommerceApp {
 
+    public static void main(String[] args) {
+        Tienda.iniciarPago();
     }
 }
+
 ````
 ### 4. Pruebas
-````package Programas;
+- Si pones un metodo inexistente:
+![](img/prueba1.png)
 
-public class ProgramasApp {
-    public static void main (String[] args){
-        //creamos una cadena de tv
-        Cadena antena3 = new Cadena("Antena 3");
-        System.out.println(antena3);
-        //creamos un programa
-        Programa el_hormiguero = new Programa("El Hormiguero",antena3,"Director1");
-        System.out.println(el_hormiguero);
-        System.out.println(antena3);
-        //insertamos empleados en el programa
-        el_hormiguero.anyadirEmpleado("Pablo Motos","presentador");
-        System.out.println(el_hormiguero);
-        //ver empleados del programa
-        System.out.println(el_hormiguero.getListaEmpleados());
-        //insertamos invitados en el programa
-        el_hormiguero.anyadirInvitado("Aitana","cantante",1);
-        //ver invitados del programa
-        System.out.println(el_hormiguero.getListaInvitados());
+- Si introduces una tarjeta válida con el pago correcto:
+![](img/prueba2.png)
 
-    }
-}
-````
+- Si pones una tarjeta de longitud incorrecta:
+![](img/prueba3.png)
+
+- Si pones un tipo de tarjeta no permitido:
+![](img/prueba4.png)
+
+- Si pones un bizum con pin correcto:
+![](img/prueba5.png)
+
+- Si pones un bizum con pin incorrecto:
+![](img/prueba6.png)
+
+- Si pones un PayPal con email correcto y saldo suficiente:
+![](img/prueba7.png)
+
+- Si pones un PayPal con email incorrecto:
+![](img/prueba8.png)
+
+- Si pones un PayPal con email correcto y saldo insuficiente:
+![](img/prueba9.png)
+
 ### 5. Entrega
 
-- [X] Código fuente en GitHub: [Link]()
+- [X] Código fuente en GitHub: [Link](https://github.com/ManuelPastorMartinez/2oTrimestre/tree/main/2oTrimestre/src/main/java/e_commerce)
 - [ ] Documentación
-- [ ] Pruebas
+- [X] Pruebas
