@@ -7,9 +7,6 @@ public enum Semaforo {
     AMARILLO, ROJO, VERDE;
 
     public Semaforo siguiente(){
-
-        Semaforo color_siguiente = null;
-
         switch (this){
             case ROJO:
                 return VERDE;
