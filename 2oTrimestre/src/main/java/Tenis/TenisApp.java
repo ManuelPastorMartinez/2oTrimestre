@@ -3,11 +3,11 @@ package Tenis;
 public class TenisApp {
     public static void main(String[] args) {
 
-        Jugador jugador1 = new Jugador("Nadal",1);
-        Jugador jugador2 = new Jugador("Djokovic",2);
+        Jugador jugadorTenis1 = new Jugador("Nadal",1);
+        Jugador jugadorTenis2 = new Jugador("Djokovic",2);
 
-        Partido partido=new Partido(jugador1,jugador2);
-        System.out.println("Partido creado entre "+jugador1.getNombre()+" y "+jugador2.getNombre());
+        Partido partido=new Partido(jugadorTenis1, jugadorTenis2);
+        System.out.println("Partido creado entre "+ jugadorTenis1.getNombre()+" y "+ jugadorTenis2.getNombre());
 
         System.out.print("Set 1: ");
         partido.insertarSet(6,4);

@@ -6,7 +6,7 @@ public class Jugador {
     private int ranking;
     private Jugador rival;
 
-    public Jugador(String nombre,int ranking){
+    public Jugador(String nombre, int ranking){
         this.nombre=nombre;
         this.ranking=ranking;
     }
