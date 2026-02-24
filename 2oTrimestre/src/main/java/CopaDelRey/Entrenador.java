@@ -10,6 +10,13 @@ public class Entrenador extends MutxamelFC implements AccionesDeportivas{
         super(nombre, edad);
         this.equipo=equipo;
         this.formacionPreferida=formacionPreferida;
+        validarFormacion();
+    }
+
+    private void validarFormacion(){
+        if (!formacionPreferida.matches(FORMATO_FORMACION)){
+            throw new FormacionCorrectaException();
+        }
     }
 
     public void planificarEntrenamiento(){

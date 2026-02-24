@@ -11,8 +11,8 @@ public class Masajista extends MutxamelFC {
     }
 
 
-    public void darMasaje(JugadorFutbol jugador){
-        System.out.println(nombre +" está dando un masaje a "+jugador);
+    public void darMasaje(String jugador){
+        System.out.println("El masajista "+nombre +" está dando un masaje a "+jugador);
     }
 
     public String getTitulacion() {
@@ -33,16 +33,16 @@ public class Masajista extends MutxamelFC {
 
     @Override
     public void concentrarse() {
-        System.out.println("El masajista está preparandose para dar masajes a "+nombre);
+        System.out.println("El masajista "+nombre+" está preparandose para dar masajes al equipo");
     }
 
     @Override
     public void viajar(String ciudad) {
-        System.out.println("El masajista está viajando con el equipo a "+ciudad);
+        System.out.println("El masajista"+nombre+" está viajando con el equipo a "+ciudad);
     }
 
     @Override
     public void celebrarGol() {
-        System.out.println("El masajista "+ nombre+"grita el gol del Equipo");
+        System.out.println("El masajista "+ nombre+" grita el gol del Equipo");
     }
 }
