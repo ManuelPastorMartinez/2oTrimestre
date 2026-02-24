@@ -1,16 +1,31 @@
-package practica2;
+package CopaDelRey;
+
+import java.util.ArrayList;
 
 public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
     private Equipo categoria;
     private int dorsal;
     private Posicion posiciones;
+    private static ArrayList<JugadorFutbol>listaJugadores=new ArrayList<>();
 
     public JugadorFutbol(String nombre, int edad, Equipo categoria, int dorsal, Posicion posiciones) {
         super(nombre, edad);
         this.categoria=categoria;
         this.dorsal=dorsal;
         this.posiciones=posiciones;
+        validarDorsal();
+
     }
+
+    private void validarDorsal(){
+        for ( JugadorFutbol jugador : listaJugadores){
+            if (jugador.categoria.equals(categoria) && jugador.dorsal==dorsal){
+                throw new MismoDorsalException();
+            }
+        }
+        listaJugadores.add(this);
+    }
+
     public void calentar(){
         System.out.println(nombre+ " calentando antes del partido para evitar lesionarse ");
     }
@@ -22,6 +37,8 @@ public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
     public void marcarGol(){
         System.out.println(nombre+ " ha marcado gol y lo está celebrando con su afición");
     }
+
+
 
     public Equipo getCategoria() {
         return categoria;

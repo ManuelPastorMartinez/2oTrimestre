@@ -1,4 +1,4 @@
-package practica2;
+package CopaDelRey;
 
 public class Acompanyante extends MutxamelFC {
     private JugadorFutbol integrante;

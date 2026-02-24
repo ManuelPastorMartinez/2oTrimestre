@@ -1,6 +1,4 @@
-package practica2;
-
-import Tenis.Jugador;
+package CopaDelRey;
 
 public class Masajista extends MutxamelFC {
     private String titulacion;

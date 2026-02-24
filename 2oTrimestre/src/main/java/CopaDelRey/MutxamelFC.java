@@ -1,4 +1,4 @@
-package practica2;
+package CopaDelRey;
 
 abstract class MutxamelFC implements FuncionesIntegrantes{
     protected String nombre;

@@ -1,4 +1,4 @@
-package practica2;
+package CopaDelRey;
 
 public class Entrenador extends MutxamelFC implements AccionesDeportivas{
     private static final String FORMATO_FORMACION= "\\d{1}-\\d{1}-\\d{1}";

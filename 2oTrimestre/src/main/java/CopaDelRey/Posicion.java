@@ -1,4 +1,4 @@
-package practica2;
+package CopaDelRey;
 
 public enum Posicion {
     PORTERO, DEFENSA, CENTROCAMPISTA, DELANTERO
