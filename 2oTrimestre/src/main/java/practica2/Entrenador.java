@@ -1,7 +1,7 @@
 package practica2;
 
 public class Entrenador extends MutxamelFC implements AccionesDeportivas{
-    private static final String FORMATO_FORMACION= "\\d{1,2}-\\d{1,2}-\\d{1,2}";
+    private static final String FORMATO_FORMACION= "\\d{1}-\\d{1}-\\d{1}";
 
     private Equipo equipo;
     private String formacionPreferida;
