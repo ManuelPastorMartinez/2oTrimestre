@@ -13,7 +13,11 @@ public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
         this.categoria=categoria;
         this.dorsal=dorsal;
         this.posiciones=posiciones;
-        validarDorsal();
+        try {
+            validarDorsal();
+        }catch (MismoDorsalException e){
+            System.out.println(e.getMessage());
+        }
 
     }
 
