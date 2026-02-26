@@ -11,20 +11,13 @@ public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
     public JugadorFutbol(String nombre, int edad, Equipo categoria, int dorsal, Posicion posiciones) {
         super(nombre, edad);
         this.categoria=categoria;
-        this.dorsal=dorsal;
         this.posiciones=posiciones;
-        validarDorsal();
+        setDorsal(dorsal);
+
 
     }
 
-    private void validarDorsal(){
-        for ( JugadorFutbol jugador : listaJugadores){
-            if (jugador.categoria.equals(categoria) && jugador.dorsal==dorsal){
-                throw new MismoDorsalException();
-            }
-        }
-        listaJugadores.add(this);
-    }
+
 
     public void calentar(){
         System.out.println(nombre+ " calentando antes del partido para evitar lesionarse ");
@@ -53,7 +46,21 @@ public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
     }
 
     public void setDorsal(int dorsal) {
-        this.dorsal = dorsal;
+        boolean estado = true;
+
+        for ( JugadorFutbol jugador : listaJugadores){
+            try{
+                if (jugador.categoria.equals(categoria) && jugador.dorsal==dorsal){
+                    estado=false;
+                    throw new MismoDorsalException();
+                }
+            }catch (MismoDorsalException e){
+                System.out.println(e.getMessage());
+            }
+        }
+        if (estado && dorsal!=this.dorsal){
+            listaJugadores.add(this);
+        }
     }
 
     public Posicion getPosiciones() {

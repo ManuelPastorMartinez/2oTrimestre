@@ -16,16 +16,34 @@ public class AppMenuMutxamelFC {
         System.out.println("[X]. Salir");
     }
 
+    public static void menuMantenimiento(){
+        System.out.println("=== Mantenimiento de Entrenadores. ");
+        System.out.println("[1]. Añadir nuevo entrenador");
+        System.out.println("[2]. Modificar datos de entrenador existente.");
+        System.out.println("[3]. Crear masajista");
+        System.out.println("[X]. Volver al menú principal");
+    }
+
     public static void menu(){
         imprimirMenu();
         switch (opcion()){
-            case 1:
+            case '1':
 
+                break;
+            case '2':
+
+                break;
+
+            case 'X':
+                System.out.println("Saliendo del programa...");
+                return;
+            default:
+                System.out.println("Por favor pon una opción válida.");
         }
     }
 
     public static char opcion(){
         System.out.print("Elige una opción: ");
-        return teclado.next().charAt(0);
+        return teclado.next().toUpperCase().charAt(0);
     }
 }
