@@ -8,27 +8,47 @@ public class Masajista extends MutxamelFC {
         super(nombre, edad);
         this.titulacion=titulacion;
         this.anyosExperiencia=anyosExperiencia;
+        /**
+         * Este es el constructor del masajista, tiene los métodos de la clase madre que los llama con super y después titulación y experiencia que son del propio masajista
+         */
     }
 
 
     public void darMasaje(String jugador){
         System.out.println("El masajista "+nombre +" está dando un masaje a "+jugador);
+
+        /**
+         * Este método es para imprimir el mensaje cada vez que un masajista de un masaje
+         */
     }
 
     public String getTitulacion() {
         return titulacion;
+        /**
+         * Método para llamar a titulación.
+         */
     }
 
     public void setTitulacion(String titulacion) {
         this.titulacion = titulacion;
+        /**
+         * Método para cambiar la titulación
+         */
     }
 
     public int getAnyosExperiencia() {
         return anyosExperiencia;
+
+        /**
+         * Método para llamar a AnyosExperiencia
+         */
     }
 
     public void setAnyosExperiencia(int anyosExperiencia) {
         this.anyosExperiencia = anyosExperiencia;
+        /**
+         * Método para cambiar anyosExperiencia
+         */
     }
 
     @Override
