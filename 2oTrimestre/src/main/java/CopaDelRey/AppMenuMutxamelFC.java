@@ -27,6 +27,7 @@ public class AppMenuMutxamelFC {
         System.out.println("[2]. Consultar equipos");
         System.out.println("        Dentro se deben listar los tipos de equipos del club y elegir uno");
         System.out.println("[X]. Salir");
+        System.out.println("==================================");
         menu();
     }
 
@@ -53,6 +54,7 @@ public class AppMenuMutxamelFC {
         System.out.println("[2]. Modificar datos de jugador existente.");
         System.out.println("[3]. Crear acompañantes (sólo seniors)");
         System.out.println("[X]. Volver al menú principal");
+        System.out.println("===============================================");
         menuMantenimiento();
     }
 
@@ -63,7 +65,7 @@ public class AppMenuMutxamelFC {
                 imprimirMenu();
                 break;
             case '2':
-
+                imprimirMantenimientoJugadores();
                 break;
 
             case '3':
@@ -114,7 +116,27 @@ public class AppMenuMutxamelFC {
 
     }
 
+    public static void imprimirMantenimientoJugadores(){
+
+        System.out.println("De qué jugador quieres hacer cambios?");
+
+        for (int i = 0; i < listaJugadores.size(); i++) {
+            System.out.println("["+i+", Nombre: "+listaJugadores.get(i).nombre+", Edad: "+listaJugadores.get(i).getEdad()
+                    +", Categoria: "+listaJugadores.get(i).getCategoria()+", Dorsal: "+listaJugadores.get(i).getDorsal()
+                    +", Posición: "+listaJugadores.get(i).getPosiciones()+"]");
+        }
+
+        System.out.println("================================================");
+        mantenimientoJugadores();
+    }
+
+    public static void mantenimientoJugadores(){
+
+    }
+
     public static void consultarEquipo(){
+
+
 
         if (listaJugadores.size()==0){
             System.out.println("No hay jugadores en el equipo");
@@ -133,7 +155,7 @@ public class AppMenuMutxamelFC {
 
 
     public static char opcion(){
-        System.out.print("Elige una opción: ");
+        System.out.print("Selecciona una opción --> ");
         return teclado.next().toUpperCase().charAt(0);
     }
 }
