@@ -15,7 +15,7 @@
 ### 2. Estructura de clases
 
 #### Diagrama de clases UML
-![](img/diagrama.jpg)
+![](img/diagrama.png)
 
 #### Código de PlantUML
 
