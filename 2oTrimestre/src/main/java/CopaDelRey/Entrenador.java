@@ -1,7 +1,7 @@
 package CopaDelRey;
 
 public class Entrenador extends MutxamelFC implements AccionesDeportivas{
-    private static final String FORMATO_FORMACION= "\\d{1}-\\d{1}-\\d{1}";
+    private static final String FORMATO_FORMACION= "\\d-\\d-\\d";
 
     private Equipo equipo;
     private String formacionPreferida;
@@ -9,19 +9,28 @@ public class Entrenador extends MutxamelFC implements AccionesDeportivas{
     public Entrenador(String nombre, int edad, Equipo equipo, String formacionPreferida) {
         super(nombre, edad);
         this.equipo=equipo;
-        this.formacionPreferida=formacionPreferida;
-        validarFormacion();
+        setFormacionPreferida(formacionPreferida);
+
     }
 
-    private void validarFormacion(){
-        try {
-            if (!formacionPreferida.matches(FORMATO_FORMACION)){
-                throw new FormacionCorrectaException();
-            }
-        }catch (FormacionCorrectaException e){
-            System.out.println(e.getMessage());
-            return;
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
+    }
+
+    public String getFormacionPreferida() {
+        return formacionPreferida;
+    }
+
+    public void setFormacionPreferida(String formacionPreferida) {
+
+        if (!formacionPreferida.matches(FORMATO_FORMACION)){
+            throw new FormacionCorrectaException();
         }
+        this.formacionPreferida=formacionPreferida;
     }
 
     public void planificarEntrenamiento(){

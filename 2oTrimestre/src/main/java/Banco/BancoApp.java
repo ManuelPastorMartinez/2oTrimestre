@@ -14,7 +14,7 @@ public class BancoApp {
         int opcion;
 
         do {
-            System.out.println("\n--- BANC MUTXAMEL ---");
+            System.out.println("--- BANC MUTXAMEL ---");
             System.out.println("1. Mantenimiento Clientes");
             System.out.println("2. Mantenimiento Cuentas");
             System.out.println("0. Salir");
@@ -36,7 +36,7 @@ public class BancoApp {
     public static void menuClientes() {
         int opcion;
 
-        System.out.println("\n1. Alta cliente");
+        System.out.println("1. Alta cliente");
         System.out.println("2. Baja cliente");
         System.out.println("3. Listado clientes");
         System.out.println("4. Modificar cliente");

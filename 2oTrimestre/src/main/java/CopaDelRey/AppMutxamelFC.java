@@ -7,19 +7,41 @@ public class AppMutxamelFC {
     public static void main(String[] args) {
         ArrayList<MutxamelFC>listaEquipo=new ArrayList<>();
 
-        JugadorFutbol portero = new JugadorFutbol("Jacobo San Mauro",30,Equipo.SENIOR,1,Posicion.PORTERO);
-        JugadorFutbol defensa = new JugadorFutbol("Jorge",2,Equipo.SENIOR,4,Posicion.DEFENSA);
-        JugadorFutbol medio = new JugadorFutbol("Joaquin Magnoli",18,Equipo.SENIOR,8,Posicion.CENTROCAMPISTA);
-        JugadorFutbol delantero = new JugadorFutbol("Angel Rocamora",25,Equipo.SENIOR,10,Posicion.DELANTERO);
-        JugadorFutbol prueba = new JugadorFutbol("Prueba",10,Equipo.SENIOR,1,Posicion.PORTERO);
+        JugadorFutbol portero = null;
+        JugadorFutbol defensa = null;
+        JugadorFutbol medio = null;
+        JugadorFutbol delantero = null;
 
-        listaEquipo.add(portero);
-        listaEquipo.add(defensa);
-        listaEquipo.add(medio);
-        listaEquipo.add(delantero);
-        listaEquipo.add(prueba);
-        Entrenador manuel = new Entrenador("Manuel Pastor",18,Equipo.SENIOR,"4-3-3");
-        listaEquipo.add(manuel);
+        try {
+            portero = new JugadorFutbol("Jacobo San Mauro", 30, Equipo.SENIOR, 1, Posicion.PORTERO);
+            listaEquipo.add(portero);
+
+            defensa = new JugadorFutbol("Jorge Cuartero", 22, Equipo.SENIOR, 4, Posicion.DEFENSA);
+            listaEquipo.add(defensa);
+
+            medio = new JugadorFutbol("Joaquin Magnoli", 18, Equipo.SENIOR, 8, Posicion.CENTROCAMPISTA);
+            listaEquipo.add(medio);
+
+            delantero = new JugadorFutbol("Angel Rocamora", 25, Equipo.SENIOR, 10, Posicion.DELANTERO);
+            listaEquipo.add(delantero);
+
+            JugadorFutbol prueba = new JugadorFutbol("Prueba", 10, Equipo.SENIOR, 1, Posicion.PORTERO);
+            listaEquipo.add(prueba);
+
+        } catch (MismoDorsalException e) {
+            System.out.println(e.getMessage());
+        }
+        Entrenador manuel = null;
+        Entrenador entrenadorPrueba = null;
+        try {
+           manuel = new Entrenador("Manuel Pastor", 18, Equipo.SENIOR, "4-3-3");
+           listaEquipo.add(manuel);
+
+           entrenadorPrueba = new Entrenador("Prueba",5,Equipo.SENIOR,"4-1-2-3");
+           listaEquipo.add(entrenadorPrueba);
+       }catch (FormacionCorrectaException e){
+           System.out.println(e.getMessage());
+       }
         Masajista david = new Masajista("David Andreica",40,"Fisioterapeuta",1);
         Masajista denis = new Masajista("Denis",21,"master",4);
         Masajista gabriel = new Masajista("Gabriel Tortosa",19,"Grado superior de masajes",8);

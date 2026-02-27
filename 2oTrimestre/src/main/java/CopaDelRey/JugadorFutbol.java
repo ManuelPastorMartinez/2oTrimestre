@@ -46,21 +46,19 @@ public class JugadorFutbol extends MutxamelFC implements AccionesDeportivas{
     }
 
     public void setDorsal(int dorsal) {
-        boolean estado = true;
-
         for ( JugadorFutbol jugador : listaJugadores){
-            try{
-                if (jugador.categoria.equals(categoria) && jugador.dorsal==dorsal){
-                    estado=false;
-                    throw new MismoDorsalException();
-                }
-            }catch (MismoDorsalException e){
-                System.out.println(e.getMessage());
+            if (jugador.categoria.equals(this.categoria) && jugador.dorsal==dorsal){
+                throw new MismoDorsalException();
             }
         }
-        if (estado && dorsal!=this.dorsal){
+
+        this.dorsal = dorsal;
+
+        if (!listaJugadores.contains(this)){
             listaJugadores.add(this);
         }
+
+
     }
 
     public Posicion getPosiciones() {
