@@ -66,10 +66,12 @@ public class AppMenuMutxamelFC {
                 break;
             case '2':
                 imprimirMantenimientoJugadores();
+                imprimirMenu();
                 break;
 
             case '3':
-
+                crearAcompanyante();
+                imprimirMenu();
                 break;
 
             case 'X':
@@ -127,10 +129,78 @@ public class AppMenuMutxamelFC {
         }
 
         System.out.println("================================================");
-        mantenimientoJugadores();
+
+        mantenimientoJugadores(opcionJugadores());
     }
 
-    public static void mantenimientoJugadores(){
+
+    public static void mantenimientoJugadores(int opcion){
+
+        System.out.println("=== Mantenimiento de jugadores. Modificar datos de jugador existente ===");
+
+        for (int i = 0; i < listaJugadores.size(); i++) {
+
+            if (opcion==i){
+                System.out.println("Modificando jugador: ["+listaJugadores.get(i).nombre+", Edad: "+listaJugadores.get(i).getEdad()
+                        +", Categoria: "+listaJugadores.get(i).getCategoria()+", Dorsal: "+listaJugadores.get(i).getDorsal()
+                        +", Posición: "+listaJugadores.get(i).getPosiciones()+"]");
+
+                System.out.println("Que quieres modificar? [nombre, edad,categoria,dorsal,posicion]");
+
+                System.out.println("================================");
+
+                switch (opcionModificar()){
+
+                    case "nombre":
+                        System.out.print("Nuevo nombre -->");
+                        String nuevoNombre = teclado.next();
+                        listaJugadores.get(i).setNombre(nuevoNombre);
+                        System.out.println("¡Nombre modificado con éxito! Nuevo nombre: "+listaJugadores.get(i).getNombre());
+                        break;
+                    case "edad":
+                        System.out.print("Nueva edad -->");
+                        int nuevaEdad = teclado.nextInt();
+                        listaJugadores.get(i).setEdad(nuevaEdad);
+                        System.out.println("¡Edad modificada con éxito! Nueva edad: "+listaJugadores.get(i).getEdad());
+                        break;
+                    case "categoria":
+                        System.out.print("Nueva categoria -->");
+                        String categoria = teclado.next().toUpperCase();
+                        Equipo nuevaCategoria = Equipo.valueOf(categoria);
+                        listaJugadores.get(i).setCategoria(nuevaCategoria);
+                        System.out.println("¡Categoria modificada con éxito! Nueva categoria: "+listaJugadores.get(i).getCategoria());
+                        break;
+                    case "dorsal":
+                        System.out.print("Nuevo dorsal-->");
+                        int nuevoDorsal = teclado.nextInt();
+                        try {
+                            for (JugadorFutbol jugador : listaJugadores){
+                                if (nuevoDorsal==jugador.getDorsal()){
+                                    throw new MismoDorsalException();
+                                }
+                            }
+                        }catch (MismoDorsalException e){
+                            System.out.println("¡Lo siento! Ese dorsal ya está ocupado por un jugador del mismo equipo "
+                                    +listaJugadores.get(i).getCategoria());
+                            return;
+                        }
+                        listaJugadores.get(i).setDorsal(nuevoDorsal);
+                        System.out.println("¡Dorsal modificado con éxito! Nuevo dorsal: "+listaJugadores.get(i).getDorsal());
+                        break;
+
+                    case "posicion":
+                        System.out.print("Nueva posicion-->");
+                        String posicion = teclado.next();
+                        Posicion nuevaPosicion=Posicion.valueOf(posicion);
+                        listaJugadores.get(i).setPosiciones(nuevaPosicion);
+                        System.out.println("¡Posicion modificada con éxito! Nueva posición: "+listaJugadores.get(i).getPosiciones());
+                        break;
+                    default:
+                        System.out.println("Por favor pon una opción correcta");
+                }
+            }
+        }
+
 
     }
 
@@ -152,6 +222,50 @@ public class AppMenuMutxamelFC {
         }
     }
 
+    public static void crearAcompanyante(){
+        System.out.print("Introduce el nombre del acompañante: ");
+        String nombre = teclado.next();
+
+        System.out.print("Introduce la edad de "+nombre+": ");
+        int edad = teclado.nextInt();
+
+        JugadorFutbol jugadorAux = null;
+
+        System.out.print("Introduce el jugador del acompañante: ");
+        teclado.nextLine();
+        String nombreJugador = teclado.nextLine();
+
+
+        for (JugadorFutbol jugador : listaJugadores) {
+            if (nombreJugador.equals(jugador.nombre)) {
+                jugadorAux = jugador;
+            }
+        }
+
+        if (jugadorAux == null){
+            System.out.println("No se ha encontrado a ningún jugador que coincida con el nombre de este acompañante");
+            return;
+        }
+
+
+        System.out.print("Que parentesco tiene "+nombre+" con "+nombreJugador+": ");
+        String parentesco = teclado.next();
+
+        Acompanyante acompanyante = new Acompanyante(nombre,edad,jugadorAux,parentesco);
+
+        System.out.println("¡Acompanyante creado! Nombre: "+nombre+", Edad: "+edad+", Jugador: "+jugadorAux.nombre+", Parentesco: "+parentesco);
+    }
+
+    public static String opcionModificar(){
+
+        System.out.print("Selecciona una opcion-->");
+        return teclado.next().toLowerCase();
+    }
+
+    public static int opcionJugadores(){
+        System.out.print("Selecciona una opción -->");
+        return teclado.nextInt();
+    }
 
 
     public static char opcion(){

@@ -44,4 +44,6 @@ public class Acompanyante extends MutxamelFC {
     public void celebrarGol() {
         System.out.println("El acompañante "+ nombre+" está celebrando el gol de su "+parentesco);
     }
+
+
 }
