@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>AppMutxamelFC.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AppMutxamelFC.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CopaDelRey</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">MalformedURLException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">AppMutxamelFC </span><span class="s2">{</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* El main que no pregunta nada, simplemente sirve para hacer pruebas del código manuales y hacer saltar los errores manualmente</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">args</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">MutxamelFC</span><span class="s2">&gt;</span><span class="s1">listaEquipo</span><span class="s2">=</span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+        <span class="s1">JugadorFutbol portero </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s1">JugadorFutbol defensa </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s1">JugadorFutbol medio </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s1">JugadorFutbol delantero </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">portero </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Jacobo San Mauro&quot;</span><span class="s2">, </span><span class="s6">30</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">1</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">PORTERO</span><span class="s2">);</span>
+            <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">portero</span><span class="s2">);</span>
+
+            <span class="s1">defensa </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Jorge Cuartero&quot;</span><span class="s2">, </span><span class="s6">22</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">4</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">DEFENSA</span><span class="s2">);</span>
+            <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">defensa</span><span class="s2">);</span>
+
+            <span class="s1">medio </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Joaquin Magnoli&quot;</span><span class="s2">, </span><span class="s6">18</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">8</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">CENTROCAMPISTA</span><span class="s2">);</span>
+            <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">medio</span><span class="s2">);</span>
+
+            <span class="s1">delantero </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Angel Rocamora&quot;</span><span class="s2">, </span><span class="s6">25</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">10</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">DELANTERO</span><span class="s2">);</span>
+            <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">delantero</span><span class="s2">);</span>
+
+            <span class="s1">JugadorFutbol prueba </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Prueba&quot;</span><span class="s2">, </span><span class="s6">10</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">1</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">PORTERO</span><span class="s2">);</span>
+            <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">prueba</span><span class="s2">);</span>
+
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">MismoDorsalException e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+        <span class="s2">}</span>
+        <span class="s1">Entrenador manuel </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s1">Entrenador entrenadorPrueba </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+        <span class="s0">try </span><span class="s2">{</span>
+           <span class="s1">manuel </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Entrenador</span><span class="s2">(</span><span class="s5">&quot;Manuel Pastor&quot;</span><span class="s2">, </span><span class="s6">18</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s5">&quot;4-3-3&quot;</span><span class="s2">);</span>
+           <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">manuel</span><span class="s2">);</span>
+
+           <span class="s1">entrenadorPrueba </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Entrenador</span><span class="s2">(</span><span class="s5">&quot;Prueba&quot;</span><span class="s2">,</span><span class="s6">5</span><span class="s2">,</span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">,</span><span class="s5">&quot;4-1-2-3&quot;</span><span class="s2">);</span>
+           <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">entrenadorPrueba</span><span class="s2">);</span>
+       <span class="s2">}</span><span class="s0">catch </span><span class="s2">(</span><span class="s1">FormacionCorrectaException e</span><span class="s2">){</span>
+           <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+       <span class="s2">}</span>
+        <span class="s1">Masajista david </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Masajista</span><span class="s2">(</span><span class="s5">&quot;David Andreica&quot;</span><span class="s2">,</span><span class="s6">40</span><span class="s2">,</span><span class="s5">&quot;Fisioterapeuta&quot;</span><span class="s2">,</span><span class="s6">1</span><span class="s2">);</span>
+        <span class="s1">Masajista denis </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Masajista</span><span class="s2">(</span><span class="s5">&quot;Denis&quot;</span><span class="s2">,</span><span class="s6">21</span><span class="s2">,</span><span class="s5">&quot;master&quot;</span><span class="s2">,</span><span class="s6">4</span><span class="s2">);</span>
+        <span class="s1">Masajista gabriel </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Masajista</span><span class="s2">(</span><span class="s5">&quot;Gabriel Tortosa&quot;</span><span class="s2">,</span><span class="s6">19</span><span class="s2">,</span><span class="s5">&quot;Grado superior de masajes&quot;</span><span class="s2">,</span><span class="s6">8</span><span class="s2">);</span>
+        <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">denis</span><span class="s2">);</span>
+        <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">david</span><span class="s2">);</span>
+        <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">gabriel</span><span class="s2">);</span>
+        <span class="s1">Acompanyante christian </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Acompanyante</span><span class="s2">(</span><span class="s5">&quot;Christian Sanchez&quot;</span><span class="s2">,</span><span class="s6">40</span><span class="s2">,</span><span class="s1">defensa</span><span class="s2">,</span><span class="s5">&quot;amigo&quot;</span><span class="s2">);</span>
+        <span class="s1">Acompanyante carlos </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Acompanyante</span><span class="s2">(</span><span class="s5">&quot;Carlos Huertas&quot;</span><span class="s2">,</span><span class="s6">60</span><span class="s2">,</span><span class="s1">portero</span><span class="s2">,</span><span class="s5">&quot;novio&quot;</span><span class="s2">);</span>
+        <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">christian</span><span class="s2">);</span>
+        <span class="s1">listaEquipo</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">carlos</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">MutxamelFC equipo </span><span class="s2">: </span><span class="s1">listaEquipo</span><span class="s2">){</span>
+            <span class="s1">equipo</span><span class="s2">.</span><span class="s1">concentrarse</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Entrenador </span><span class="s2">|| </span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">AccionesDeportivas</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">entrenar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof  </span><span class="s1">Masajista</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">Masajista</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">darMasaje</span><span class="s2">(</span><span class="s1">delantero</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">equipo</span><span class="s2">.</span><span class="s1">viajar</span><span class="s2">(</span><span class="s5">&quot;Madrid&quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Entrenador</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">Entrenador</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">planificarEntrenamiento</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Entrenador </span><span class="s2">|| </span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">AccionesDeportivas</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">entrenar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">JugadorFutbol</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">descansar</span><span class="s2">();</span>
+                <span class="s2">((</span><span class="s1">JugadorFutbol</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">calentar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+
+            <span class="s0">if</span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol </span><span class="s2">||</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Entrenador</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">AccionesDeportivas</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">jugarPartido</span><span class="s2">(</span><span class="s5">&quot;Madrid&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Acompanyante</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">Acompanyante</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">animarEquipo</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Entrenador</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">Entrenador</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">hacerCambios</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">JugadorFutbol</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">marcarGol</span><span class="s2">();</span>
+            <span class="s2">}</span>
+            <span class="s1">equipo</span><span class="s2">.</span><span class="s1">celebrarGol</span><span class="s2">();</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">Masajista</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">Masajista</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">darMasaje</span><span class="s2">(</span><span class="s1">defensa</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">);</span>
+                <span class="s2">((</span><span class="s1">Masajista</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">darMasaje</span><span class="s2">(</span><span class="s1">medio</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">);</span>
+                <span class="s2">((</span><span class="s1">Masajista</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">darMasaje</span><span class="s2">(</span><span class="s1">portero</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">equipo</span><span class="s2">.</span><span class="s1">viajar</span><span class="s2">(</span><span class="s5">&quot;Mutxamel&quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">equipo </span><span class="s0">instanceof </span><span class="s1">JugadorFutbol</span><span class="s2">){</span>
+                <span class="s2">((</span><span class="s1">JugadorFutbol</span><span class="s2">) </span><span class="s1">equipo</span><span class="s2">).</span><span class="s1">descansar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

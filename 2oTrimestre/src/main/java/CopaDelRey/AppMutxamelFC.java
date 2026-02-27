@@ -4,6 +4,11 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class AppMutxamelFC {
+
+    /**
+     * El main que no pregunta nada, simplemente sirve para hacer pruebas del código manuales y hacer saltar los errores manualmente
+     * @param args
+     */
     public static void main(String[] args) {
         ArrayList<MutxamelFC>listaEquipo=new ArrayList<>();
 

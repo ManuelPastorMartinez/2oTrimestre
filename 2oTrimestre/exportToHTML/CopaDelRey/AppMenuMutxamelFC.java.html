@@ -1,0 +1,343 @@
+<html>
+<head>
+<title>AppMenuMutxamelFC.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AppMenuMutxamelFC.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CopaDelRey</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">AppMenuMutxamelFC </span><span class="s2">{</span>
+    <span class="s0">static </span><span class="s1">Scanner teclado </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+    <span class="s0">public static </span><span class="s1">ArrayList</span><span class="s2">&lt;</span><span class="s1">JugadorFutbol</span><span class="s2">&gt;</span><span class="s1">listaJugadores </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ArrayList</span><span class="s2">&lt;&gt;();</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* El main contiene jugadores y los añade a la lista de jugadores y llama a imprimir menu para comencar la app</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">args</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s1">JugadorFutbol portero </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Jacobo San Mauro&quot;</span><span class="s2">, </span><span class="s6">30</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">1</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">PORTERO</span><span class="s2">);</span>
+        <span class="s1">JugadorFutbol defensa </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Jorge Cuartero&quot;</span><span class="s2">, </span><span class="s6">22</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">4</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">DEFENSA</span><span class="s2">);</span>
+        <span class="s1">JugadorFutbol medio </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Joaquin Magnoli&quot;</span><span class="s2">, </span><span class="s6">18</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">8</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">CENTROCAMPISTA</span><span class="s2">);</span>
+        <span class="s1">JugadorFutbol delantero </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s5">&quot;Angel Rocamora&quot;</span><span class="s2">, </span><span class="s6">25</span><span class="s2">, </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">SENIOR</span><span class="s2">, </span><span class="s6">10</span><span class="s2">, </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">DELANTERO</span><span class="s2">);</span>
+
+        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">portero</span><span class="s2">);</span>
+        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">defensa</span><span class="s2">);</span>
+        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">medio</span><span class="s2">);</span>
+        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">delantero</span><span class="s2">);</span>
+        <span class="s1">imprimirMenu</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para imprimir el menu y que llama a menú</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirMenu</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;=== App de mantenimiento de Mutxamel FC ===&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[1]. Mantenimiento de jugadores&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;        Dentro podremos añadir jugadores, modificar sus datos y añadir acompañantes (sólo seniors).&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[2]. Consultar equipos&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;        Dentro se deben listar los tipos de equipos del club y elegir uno&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[X]. Salir&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;==================================&quot;</span><span class="s2">);</span>
+        <span class="s1">menu</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* 1er menú que da la opción de mantenimiento de jugadores, de mostrar los jugadores o de salir del programa</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">menu</span><span class="s2">(){</span>
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcion</span><span class="s2">()){</span>
+            <span class="s0">case </span><span class="s5">'1'</span><span class="s2">:</span>
+                <span class="s1">imprimirMenuMantenimiento</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">'2'</span><span class="s2">:</span>
+                <span class="s1">consultarEquipo</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+
+            <span class="s0">case </span><span class="s5">'X'</span><span class="s2">:</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Saliendo del programa...&quot;</span><span class="s2">);</span>
+                <span class="s0">return</span><span class="s2">;</span>
+            <span class="s0">default</span><span class="s2">:</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Por favor pon una opción válida.&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para imprimir el menú de mantenimiento de los jugadores y llama para hacer el switchCase</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirMenuMantenimiento</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;=== Mantenimiento de Jugadores. &quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[1]. Añadir nuevo jugador&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[2]. Modificar datos de jugador existente.&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[3]. Crear acompañantes (sólo seniors)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[X]. Volver al menú principal&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;===============================================&quot;</span><span class="s2">);</span>
+        <span class="s1">menuMantenimiento</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para llamar al switchCase y dependiendo de que eligas llama a un método u a otro</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">menuMantenimiento</span><span class="s2">(){</span>
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcion</span><span class="s2">()){</span>
+            <span class="s0">case </span><span class="s5">'1'</span><span class="s2">:</span>
+                <span class="s1">anyadirJugador</span><span class="s2">();</span>
+                <span class="s1">imprimirMenu</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">'2'</span><span class="s2">:</span>
+                <span class="s1">imprimirMantenimientoJugadores</span><span class="s2">();</span>
+                <span class="s1">imprimirMenu</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+
+            <span class="s0">case </span><span class="s5">'3'</span><span class="s2">:</span>
+                <span class="s1">crearAcompanyante</span><span class="s2">();</span>
+                <span class="s1">imprimirMenu</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+
+            <span class="s0">case </span><span class="s5">'X'</span><span class="s2">:</span>
+                <span class="s1">imprimirMenu</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">default</span><span class="s2">:</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Por favor pon una opción válida.&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para crear un jugador y añadirlo a la lista de jugadores</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">anyadirJugador</span><span class="s2">(){</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Cuál es el nombre del jugador a añadir: &quot;</span><span class="s2">);</span>
+        <span class="s1">String nombre </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Cuál es la edad de &quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">edad </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Cuál es la categoria del jugador&quot;</span><span class="s2">);</span>
+        <span class="s1">String categoria </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+        <span class="s1">Equipo equipo </span><span class="s2">= </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">categoria</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Cuál es el dorsal del jugador&quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">dorsal </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">JugadorFutbol jugador </span><span class="s2">: </span><span class="s1">listaJugadores</span><span class="s2">){</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getDorsal</span><span class="s2">()==</span><span class="s1">dorsal</span><span class="s2">){</span>
+                    <span class="s0">throw new </span><span class="s1">MismoDorsalException</span><span class="s2">();</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span><span class="s0">catch </span><span class="s2">(</span><span class="s1">MismoDorsalException e</span><span class="s2">){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Por último, cuál es la posición del jugador&quot;</span><span class="s2">);</span>
+        <span class="s1">String posicionJugador </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+
+        <span class="s1">Posicion posicion </span><span class="s2">= </span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">posicionJugador</span><span class="s2">);</span>
+
+        <span class="s1">JugadorFutbol nuevo </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JugadorFutbol</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">,</span><span class="s1">edad</span><span class="s2">,</span><span class="s1">equipo</span><span class="s2">,</span><span class="s1">dorsal</span><span class="s2">,</span><span class="s1">posicion</span><span class="s2">);</span>
+        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">add</span><span class="s2">(</span><span class="s1">nuevo</span><span class="s2">);</span>
+
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para imprimir el menú de mantenimiento de los jugadores</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirMantenimientoJugadores</span><span class="s2">(){</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;De qué jugador quieres hacer cambios?&quot;</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s6">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;[&quot;</span><span class="s2">+</span><span class="s1">i</span><span class="s2">+</span><span class="s5">&quot;, Nombre: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;, Edad: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getEdad</span><span class="s2">()</span>
+                    <span class="s2">+</span><span class="s5">&quot;, Categoria: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getCategoria</span><span class="s2">()+</span><span class="s5">&quot;, Dorsal: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getDorsal</span><span class="s2">()</span>
+                    <span class="s2">+</span><span class="s5">&quot;, Posición: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getPosiciones</span><span class="s2">()+</span><span class="s5">&quot;]&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;================================================&quot;</span><span class="s2">);</span>
+
+        <span class="s1">mantenimientoJugadores</span><span class="s2">(</span><span class="s1">opcionJugadores</span><span class="s2">());</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* El método de mantenimiento de los jugadores, si la opción que has elegido coincide con un jugador te pregunta lo que quieres modificar</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">opcion</span>
+     <span class="s3">*/</span>
+
+    <span class="s0">public static void </span><span class="s1">mantenimientoJugadores</span><span class="s2">(</span><span class="s0">int </span><span class="s1">opcion</span><span class="s2">){</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;=== Mantenimiento de jugadores. Modificar datos de jugador existente ===&quot;</span><span class="s2">);</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s6">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">size</span><span class="s2">(); </span><span class="s1">i</span><span class="s2">++) {</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">opcion</span><span class="s2">==</span><span class="s1">i</span><span class="s2">){</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Modificando jugador: [&quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;, Edad: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getEdad</span><span class="s2">()</span>
+                        <span class="s2">+</span><span class="s5">&quot;, Categoria: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getCategoria</span><span class="s2">()+</span><span class="s5">&quot;, Dorsal: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getDorsal</span><span class="s2">()</span>
+                        <span class="s2">+</span><span class="s5">&quot;, Posición: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getPosiciones</span><span class="s2">()+</span><span class="s5">&quot;]&quot;</span><span class="s2">);</span>
+
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Que quieres modificar? [nombre, edad,categoria,dorsal,posicion]&quot;</span><span class="s2">);</span>
+
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;================================&quot;</span><span class="s2">);</span>
+
+                <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcionModificar</span><span class="s2">()){</span>
+
+                    <span class="s0">case </span><span class="s5">&quot;nombre&quot;</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Nuevo nombre --&gt;&quot;</span><span class="s2">);</span>
+                        <span class="s1">String nuevoNombre </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+                        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">setNombre</span><span class="s2">(</span><span class="s1">nuevoNombre</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Nombre modificado con éxito! Nuevo nombre: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getNombre</span><span class="s2">());</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s0">case </span><span class="s5">&quot;edad&quot;</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Nueva edad --&gt;&quot;</span><span class="s2">);</span>
+                        <span class="s0">int </span><span class="s1">nuevaEdad </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+                        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">setEdad</span><span class="s2">(</span><span class="s1">nuevaEdad</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Edad modificada con éxito! Nueva edad: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getEdad</span><span class="s2">());</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s0">case </span><span class="s5">&quot;categoria&quot;</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Nueva categoria --&gt;&quot;</span><span class="s2">);</span>
+                        <span class="s1">String categoria </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+                        <span class="s1">Equipo nuevaCategoria </span><span class="s2">= </span><span class="s1">Equipo</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">categoria</span><span class="s2">);</span>
+                        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">setCategoria</span><span class="s2">(</span><span class="s1">nuevaCategoria</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Categoria modificada con éxito! Nueva categoria: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getCategoria</span><span class="s2">());</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s0">case </span><span class="s5">&quot;dorsal&quot;</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Nuevo dorsal--&gt;&quot;</span><span class="s2">);</span>
+                        <span class="s0">int </span><span class="s1">nuevoDorsal </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+                        <span class="s0">try </span><span class="s2">{</span>
+                            <span class="s0">for </span><span class="s2">(</span><span class="s1">JugadorFutbol jugador </span><span class="s2">: </span><span class="s1">listaJugadores</span><span class="s2">){</span>
+                                <span class="s0">if </span><span class="s2">(</span><span class="s1">nuevoDorsal</span><span class="s2">==</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getDorsal</span><span class="s2">()){</span>
+                                    <span class="s0">throw new </span><span class="s1">MismoDorsalException</span><span class="s2">();</span>
+                                <span class="s2">}</span>
+                            <span class="s2">}</span>
+                        <span class="s2">}</span><span class="s0">catch </span><span class="s2">(</span><span class="s1">MismoDorsalException e</span><span class="s2">){</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Lo siento! Ese dorsal ya está ocupado por un jugador del mismo equipo &quot;</span>
+                                    <span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getCategoria</span><span class="s2">());</span>
+                            <span class="s0">return</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+                        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">setDorsal</span><span class="s2">(</span><span class="s1">nuevoDorsal</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Dorsal modificado con éxito! Nuevo dorsal: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getDorsal</span><span class="s2">());</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+
+                    <span class="s0">case </span><span class="s5">&quot;posicion&quot;</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Nueva posicion--&gt;&quot;</span><span class="s2">);</span>
+                        <span class="s1">String posicion </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+                        <span class="s1">Posicion nuevaPosicion</span><span class="s2">=</span><span class="s1">Posicion</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">posicion</span><span class="s2">);</span>
+                        <span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">setPosiciones</span><span class="s2">(</span><span class="s1">nuevaPosicion</span><span class="s2">);</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Posicion modificada con éxito! Nueva posición: &quot;</span><span class="s2">+</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">get</span><span class="s2">(</span><span class="s1">i</span><span class="s2">).</span><span class="s1">getPosiciones</span><span class="s2">());</span>
+                        <span class="s0">break</span><span class="s2">;</span>
+                    <span class="s0">default</span><span class="s2">:</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;Por favor pon una opción correcta&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para imprimir todos los jugadores del equipo</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">consultarEquipo</span><span class="s2">(){</span>
+
+
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">listaJugadores</span><span class="s2">.</span><span class="s1">size</span><span class="s2">()==</span><span class="s6">0</span><span class="s2">){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;No hay jugadores en el equipo&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">JugadorFutbol jugador </span><span class="s2">: </span><span class="s1">listaJugadores</span><span class="s2">){</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;, &quot;</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getEdad</span><span class="s2">()+</span><span class="s5">&quot;, &quot;</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getCategoria</span><span class="s2">()+</span><span class="s5">&quot;, &quot;</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getDorsal</span><span class="s2">()+</span><span class="s5">&quot;, &quot;</span><span class="s2">);</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">getPosiciones</span><span class="s2">());</span>
+            <span class="s2">}</span>
+            <span class="s1">imprimirMenu</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para crear un acompañante para el jugador preguntando su información y añddiendolo al final</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">crearAcompanyante</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Introduce el nombre del acompañante: &quot;</span><span class="s2">);</span>
+        <span class="s1">String nombre </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Introduce la edad de &quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;: &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">edad </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+        <span class="s1">JugadorFutbol jugadorAux </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Introduce el jugador del acompañante: &quot;</span><span class="s2">);</span>
+        <span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+        <span class="s1">String nombreJugador </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">JugadorFutbol jugador </span><span class="s2">: </span><span class="s1">listaJugadores</span><span class="s2">) {</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">nombreJugador</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">jugador</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">)) {</span>
+                <span class="s1">jugadorAux </span><span class="s2">= </span><span class="s1">jugador</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">jugadorAux </span><span class="s2">== </span><span class="s0">null</span><span class="s2">){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;No se ha encontrado a ningún jugador que coincida con el nombre de este acompañante&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Que parentesco tiene &quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot; con &quot;</span><span class="s2">+</span><span class="s1">nombreJugador</span><span class="s2">+</span><span class="s5">&quot;: &quot;</span><span class="s2">);</span>
+        <span class="s1">String parentesco </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+
+        <span class="s1">Acompanyante acompanyante </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Acompanyante</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">,</span><span class="s1">edad</span><span class="s2">,</span><span class="s1">jugadorAux</span><span class="s2">,</span><span class="s1">parentesco</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;¡Acompanyante creado! Nombre: &quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;, Edad: &quot;</span><span class="s2">+</span><span class="s1">edad</span><span class="s2">+</span><span class="s5">&quot;, Jugador: &quot;</span><span class="s2">+</span><span class="s1">jugadorAux</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot;, Parentesco: &quot;</span><span class="s2">+</span><span class="s1">parentesco</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para preguntar por un número y devolverlo para el menú</span>
+     <span class="s3">* </span><span class="s4">@return</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static </span><span class="s1">String opcionModificar</span><span class="s2">(){</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Selecciona una opcion--&gt;&quot;</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toLowerCase</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para preguntar por lo que quieres modificar del jugador y te lo devuelve para modificar la opción que hayas elegido</span>
+     <span class="s3">* </span><span class="s4">@return</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static int </span><span class="s1">opcionJugadores</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Selecciona una opción --&gt;&quot;</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para preguntar por un carácter  y te lo devuelve para el menú</span>
+     <span class="s3">* </span><span class="s4">@return</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static char </span><span class="s1">opcion</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Selecciona una opción --&gt; &quot;</span><span class="s2">);</span>
+        <span class="s0">return </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">charAt</span><span class="s2">(</span><span class="s6">0</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

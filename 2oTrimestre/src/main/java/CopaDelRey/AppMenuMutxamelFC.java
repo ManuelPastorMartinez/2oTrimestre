@@ -7,6 +7,11 @@ public class AppMenuMutxamelFC {
     static Scanner teclado = new Scanner(System.in);
 
     public static ArrayList<JugadorFutbol>listaJugadores = new ArrayList<>();
+
+    /**
+     * El main contiene jugadores y los añade a la lista de jugadores y llama a imprimir menu para comencar la app
+     * @param args
+     */
     public static void main(String[] args) {
 
         JugadorFutbol portero = new JugadorFutbol("Jacobo San Mauro", 30, Equipo.SENIOR, 1, Posicion.PORTERO);
@@ -20,6 +25,10 @@ public class AppMenuMutxamelFC {
         listaJugadores.add(delantero);
         imprimirMenu();
     }
+
+    /**
+     * Método para imprimir el menu y que llama a menú
+     */
     public static void imprimirMenu(){
         System.out.println("=== App de mantenimiento de Mutxamel FC ===");
         System.out.println("[1]. Mantenimiento de jugadores");
@@ -31,6 +40,9 @@ public class AppMenuMutxamelFC {
         menu();
     }
 
+    /**
+     * 1er menú que da la opción de mantenimiento de jugadores, de mostrar los jugadores o de salir del programa
+     */
     public static void menu(){
         switch (opcion()){
             case '1':
@@ -48,6 +60,9 @@ public class AppMenuMutxamelFC {
         }
     }
 
+    /**
+     * Método que sirve para imprimir el menú de mantenimiento de los jugadores y llama para hacer el switchCase
+     */
     public static void imprimirMenuMantenimiento(){
         System.out.println("=== Mantenimiento de Jugadores. ");
         System.out.println("[1]. Añadir nuevo jugador");
@@ -58,6 +73,9 @@ public class AppMenuMutxamelFC {
         menuMantenimiento();
     }
 
+    /**
+     * Método que sirve para llamar al switchCase y dependiendo de que eligas llama a un método u a otro
+     */
     public static void menuMantenimiento(){
         switch (opcion()){
             case '1':
@@ -82,6 +100,9 @@ public class AppMenuMutxamelFC {
         }
     }
 
+    /**
+     * Método que sirve para crear un jugador y añadirlo a la lista de jugadores
+     */
     public static void anyadirJugador(){
 
         System.out.println("Cuál es el nombre del jugador a añadir: ");
@@ -118,6 +139,9 @@ public class AppMenuMutxamelFC {
 
     }
 
+    /**
+     * Método para imprimir el menú de mantenimiento de los jugadores
+     */
     public static void imprimirMantenimientoJugadores(){
 
         System.out.println("De qué jugador quieres hacer cambios?");
@@ -133,6 +157,10 @@ public class AppMenuMutxamelFC {
         mantenimientoJugadores(opcionJugadores());
     }
 
+    /**
+     * El método de mantenimiento de los jugadores, si la opción que has elegido coincide con un jugador te pregunta lo que quieres modificar
+     * @param opcion
+     */
 
     public static void mantenimientoJugadores(int opcion){
 
@@ -204,6 +232,9 @@ public class AppMenuMutxamelFC {
 
     }
 
+    /**
+     * Método que sirve para imprimir todos los jugadores del equipo
+     */
     public static void consultarEquipo(){
 
 
@@ -222,6 +253,9 @@ public class AppMenuMutxamelFC {
         }
     }
 
+    /**
+     * Método que sirve para crear un acompañante para el jugador preguntando su información y añddiendolo al final
+     */
     public static void crearAcompanyante(){
         System.out.print("Introduce el nombre del acompañante: ");
         String nombre = teclado.next();
@@ -256,18 +290,29 @@ public class AppMenuMutxamelFC {
         System.out.println("¡Acompanyante creado! Nombre: "+nombre+", Edad: "+edad+", Jugador: "+jugadorAux.nombre+", Parentesco: "+parentesco);
     }
 
+    /**
+     * Método que sirve para preguntar por un número y devolverlo para el menú
+     * @return
+     */
     public static String opcionModificar(){
 
         System.out.print("Selecciona una opcion-->");
         return teclado.next().toLowerCase();
     }
 
+    /**
+     * Método que sirve para preguntar por lo que quieres modificar del jugador y te lo devuelve para modificar la opción que hayas elegido
+     * @return
+     */
     public static int opcionJugadores(){
         System.out.print("Selecciona una opción -->");
         return teclado.nextInt();
     }
 
-
+    /**
+     * Método para preguntar por un carácter  y te lo devuelve para el menú
+     * @return
+     */
     public static char opcion(){
         System.out.print("Selecciona una opción --> ");
         return teclado.next().toUpperCase().charAt(0);

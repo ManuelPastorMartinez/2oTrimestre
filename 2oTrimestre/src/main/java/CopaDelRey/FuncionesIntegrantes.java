@@ -18,7 +18,7 @@ public interface FuncionesIntegrantes {
     public void viajar(String ciudad);
 
     /**
-     * Este método
+     * Este método sirve también para sobreescribir y que la clase que lo llame celebre el gol personalizado para cada tipo de clase
      */
     public void celebrarGol();
 }

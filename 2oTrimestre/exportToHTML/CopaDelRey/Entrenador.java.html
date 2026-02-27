@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>Entrenador.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #5f826b; font-style: italic;}
+.s5 { color: #67a37c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Entrenador.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CopaDelRey</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Entrenador </span><span class="s0">extends </span><span class="s1">MutxamelFC </span><span class="s0">implements </span><span class="s1">AccionesDeportivas</span><span class="s2">{</span>
+    <span class="s0">private static final </span><span class="s1">String FORMATO_FORMACION</span><span class="s2">= </span><span class="s3">&quot;</span><span class="s0">\\</span><span class="s3">d-</span><span class="s0">\\</span><span class="s3">d-</span><span class="s0">\\</span><span class="s3">d&quot;</span><span class="s2">;</span>
+
+    <span class="s0">private </span><span class="s1">Equipo equipo</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String formacionPreferida</span><span class="s2">;</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Constructor de entrenador que hereda la clase MutxamelFC y también añade sus atributos propios al constructor</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">nombre</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">edad</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">equipo</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">formacionPreferida</span>
+     <span class="s4">*/</span>
+    <span class="s0">public </span><span class="s1">Entrenador</span><span class="s2">(</span><span class="s1">String nombre</span><span class="s2">, </span><span class="s0">int </span><span class="s1">edad</span><span class="s2">, </span><span class="s1">Equipo equipo</span><span class="s2">, </span><span class="s1">String formacionPreferida</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">, </span><span class="s1">edad</span><span class="s2">);</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">equipo</span><span class="s2">=</span><span class="s1">equipo</span><span class="s2">;</span>
+        <span class="s1">setFormacionPreferida</span><span class="s2">(</span><span class="s1">formacionPreferida</span><span class="s2">);</span>
+
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para poder llamar a equipo</span>
+     <span class="s4">* </span><span class="s5">@return</span>
+     <span class="s4">*/</span>
+    <span class="s0">public </span><span class="s1">Equipo getEquipo</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">equipo</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para poder cambiar equipo</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">equipo</span>
+     <span class="s4">*/</span>
+    <span class="s0">public void </span><span class="s1">setEquipo</span><span class="s2">(</span><span class="s1">Equipo equipo</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">equipo </span><span class="s2">= </span><span class="s1">equipo</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para llamar a formaciónPreferida</span>
+     <span class="s4">* </span><span class="s5">@return</span>
+     <span class="s4">*/</span>
+    <span class="s0">public </span><span class="s1">String getFormacionPreferida</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">formacionPreferida</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para cambiar la formación preferida de entrenador</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">formacionPreferida</span>
+     <span class="s4">*/</span>
+    <span class="s0">public void </span><span class="s1">setFormacionPreferida</span><span class="s2">(</span><span class="s1">String formacionPreferida</span><span class="s2">) {</span>
+
+        <span class="s0">if </span><span class="s2">(!</span><span class="s1">formacionPreferida</span><span class="s2">.</span><span class="s1">matches</span><span class="s2">(</span><span class="s1">FORMATO_FORMACION</span><span class="s2">)){</span>
+            <span class="s0">throw new </span><span class="s1">FormacionCorrectaException</span><span class="s2">();</span>
+        <span class="s2">}</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">formacionPreferida</span><span class="s2">=</span><span class="s1">formacionPreferida</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método del entrenador que sirve para mostrar el mensaje de planificar el entrenamiento</span>
+     <span class="s4">*/</span>
+    <span class="s0">public void </span><span class="s1">planificarEntrenamiento</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">+ </span><span class="s3">&quot; ha decidido hacer un pre partido en el entrenamiento con la alineación &quot;</span><span class="s2">+</span><span class="s1">formacionPreferida</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para imprimir el mensaje para hacer los cambios</span>
+     <span class="s4">*/</span>
+    <span class="s0">public void </span><span class="s1">hacerCambios</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">+</span><span class="s3">&quot; ha decidido hacer cambios ya que el equipo está cansado y necesita piernas frescas&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sirve para sobreescribir concentrarse y con un mensaje personificado para el entrenador</span>
+     <span class="s4">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">concentrarse</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">+</span><span class="s3">&quot; preparandose mentalmente para el partido&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método para sobreescribir viajar y con el mensaje para entrenador</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">ciudad</span>
+     <span class="s4">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">viajar</span><span class="s2">(</span><span class="s1">String ciudad</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">+</span><span class="s3">&quot; viajando a &quot;</span><span class="s2">+</span><span class="s1">ciudad</span><span class="s2">+</span><span class="s3">&quot; después de la concentración del equipo&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sobreescribe celebrarGol y con mensaje personal para entrenador</span>
+     <span class="s4">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">celebrarGol</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">+</span><span class="s3">&quot; celebrando el gol del equipo&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método que sobreescribe entrenar y con mensaje personificado para entrenador</span>
+     <span class="s4">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">entrenar</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Preparando el último entrenamiento antes del partido&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* Método para sobreescribir jugarPartido personificado para entrenador</span>
+     <span class="s4">* </span><span class="s5">@param </span><span class="s4">rival</span>
+     <span class="s4">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">jugarPartido</span><span class="s2">(</span><span class="s1">String rival</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Preparando las tácticas del partido contra el &quot;</span><span class="s2">+</span><span class="s1">rival</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Masajista.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Masajista.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CopaDelRey</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Masajista </span><span class="s0">extends </span><span class="s1">MutxamelFC </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String titulacion</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">anyosExperiencia</span><span class="s2">;</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este es el constructor del masajista, tiene los métodos de la clase madre que los llama con super y después titulación y experiencia que son del propio masajista</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">nombre</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">edad</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">titulacion</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">anyosExperiencia</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Masajista</span><span class="s2">(</span><span class="s1">String nombre</span><span class="s2">, </span><span class="s0">int </span><span class="s1">edad</span><span class="s2">,</span><span class="s1">String titulacion</span><span class="s2">, </span><span class="s0">int </span><span class="s1">anyosExperiencia</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">nombre</span><span class="s2">, </span><span class="s1">edad</span><span class="s2">);</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">titulacion</span><span class="s2">=</span><span class="s1">titulacion</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">anyosExperiencia</span><span class="s2">=</span><span class="s1">anyosExperiencia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este método es para imprimir el mensaje cada vez que un masajista de un masaje</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">jugador</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">darMasaje</span><span class="s2">(</span><span class="s1">String jugador</span><span class="s2">){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;El masajista &quot;</span><span class="s2">+</span><span class="s1">nombre </span><span class="s2">+</span><span class="s5">&quot; está dando un masaje a &quot;</span><span class="s2">+</span><span class="s1">jugador</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para llamar a titulación.</span>
+     <span class="s3">* </span><span class="s4">@return</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">String getTitulacion</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">titulacion</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para cambiar la titulación</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">titulacion</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">setTitulacion</span><span class="s2">(</span><span class="s1">String titulacion</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">titulacion </span><span class="s2">= </span><span class="s1">titulacion</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para llamar a AnyosExperiencia</span>
+      <span class="s3">* </span><span class="s4">@return</span>
+     <span class="s3">*/</span>
+    <span class="s0">public int </span><span class="s1">getAnyosExperiencia</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">anyosExperiencia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para cambiar anyosExperiencia</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">anyosExperiencia</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">setAnyosExperiencia</span><span class="s2">(</span><span class="s0">int </span><span class="s1">anyosExperiencia</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">anyosExperiencia </span><span class="s2">= </span><span class="s1">anyosExperiencia</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sobreescribe concentrarse y personalizado para masajista</span>
+     <span class="s3">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">concentrarse</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;El masajista &quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot; está preparandose para dar masajes al equipo&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sobreescribe viajar y personalizado para masajista</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">ciudad</span>
+     <span class="s3">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">viajar</span><span class="s2">(</span><span class="s1">String ciudad</span><span class="s2">) {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;El masajista&quot;</span><span class="s2">+</span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot; está viajando con el equipo a &quot;</span><span class="s2">+</span><span class="s1">ciudad</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método para sobreescribir celebrarGol y personalizado para masajista</span>
+     <span class="s3">*/</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">celebrarGol</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s5">&quot;El masajista &quot;</span><span class="s2">+ </span><span class="s1">nombre</span><span class="s2">+</span><span class="s5">&quot; grita el gol del Equipo&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

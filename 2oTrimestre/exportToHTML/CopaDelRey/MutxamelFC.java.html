@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>MutxamelFC.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MutxamelFC.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">CopaDelRey</span><span class="s2">;</span>
+
+<span class="s0">abstract class </span><span class="s1">MutxamelFC </span><span class="s0">implements </span><span class="s1">FuncionesIntegrantes</span><span class="s2">{</span>
+    <span class="s0">protected </span><span class="s1">String nombre</span><span class="s2">;</span>
+    <span class="s0">private int </span><span class="s1">edad</span><span class="s2">;</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* </span><span class="s4">@Auhor </span><span class="s3">Manuel Pastor</span>
+     <span class="s3">* </span><span class="s4">@Version </span><span class="s3">1.0</span>
+     <span class="s3">* Este es el constructor de la clase madre, que se reutiliza en todas las hijas</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">nombre</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">edad</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">MutxamelFC</span><span class="s2">(</span><span class="s1">String nombre</span><span class="s2">,</span><span class="s0">int </span><span class="s1">edad</span><span class="s2">){</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nombre</span><span class="s2">=</span><span class="s1">nombre</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">edad</span><span class="s2">=</span><span class="s1">edad</span><span class="s2">;</span>
+    <span class="s2">}</span>
+    <span class="s3">/**</span>
+     <span class="s3">* Este método sirve para poder llamar al nombre</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">String getNombre</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">nombre</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este método sirve para cambiar al nombre</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">setNombre</span><span class="s2">(</span><span class="s1">String nombre</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nombre </span><span class="s2">= </span><span class="s1">nombre</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este método sirve para llamar a edad</span>
+     <span class="s3">*/</span>
+    <span class="s0">public int </span><span class="s1">getEdad</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">edad</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este método sirve para poder cambiar la edad</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">edad</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">setEdad</span><span class="s2">(</span><span class="s0">int </span><span class="s1">edad</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">edad </span><span class="s2">= </span><span class="s1">edad</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
