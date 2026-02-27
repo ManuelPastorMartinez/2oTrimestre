@@ -101,6 +101,7 @@ public class AppMenuMutxamelFC {
             }
         }catch (MismoDorsalException e){
             System.out.println(e.getMessage());
+            return;
         }
 
         System.out.println("Por último, cuál es la posición del jugador");
