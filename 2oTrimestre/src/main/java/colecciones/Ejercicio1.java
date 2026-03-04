@@ -15,10 +15,9 @@ public class Ejercicio1 {
         System.out.println(letras.isEmpty());
         System.out.println(letras.size());
         System.out.println(letras.peek());
-        for (String letra :letras){
-            if (letra.equals(letra)){
-                System.out.println(letras.pop());
-            }
+        for (int i = 0; i < letras.size(); i++) {
+            System.out.println(letras.pop());
         }
+
     }
 }
