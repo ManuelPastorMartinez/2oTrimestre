@@ -15,7 +15,8 @@ public class Ejercicio1 {
         System.out.println(letras.isEmpty());
         System.out.println(letras.size());
         System.out.println(letras.peek());
-        for (int i = 0; i < letras.size(); i++) {
+
+        while (!letras.isEmpty()){
             System.out.println(letras.pop());
         }
 
