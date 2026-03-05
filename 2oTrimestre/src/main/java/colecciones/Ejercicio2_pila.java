@@ -3,7 +3,7 @@ package colecciones;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Ejercicio2 {
+public class Ejercicio2_pila {
     static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         Stack<Integer> pila = new Stack<>();

@@ -3,7 +3,7 @@ package colecciones;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Ejercicio3 {
+public class Ejercicio3_pila {
     static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         String expresion=teclado.nextLine();

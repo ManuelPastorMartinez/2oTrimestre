@@ -2,7 +2,7 @@ package colecciones;
 
 import java.util.Stack;
 
-public class Ejercicio1 {
+public class Ejercicio1_pila {
     public static void main(String[] args) {
         Stack<String>letras = new Stack<>();
 
