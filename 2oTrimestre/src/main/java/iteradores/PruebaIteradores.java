@@ -1,11 +1,10 @@
 package iteradores;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class pruebaIteradores {
+public class PruebaIteradores {
     public static void main(String[] args) {
         List<Integer> numeros = new ArrayList<>();
         numeros.add(1);
