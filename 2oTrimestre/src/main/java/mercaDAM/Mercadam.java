@@ -2,20 +2,23 @@ package mercaDAM;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 @Getter
 @Setter
+@ToString
 public class Mercadam {
     static String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     static Random random = new Random();
     private Set<Cliente> clientes;
 
     public Mercadam(){
-
+        clientes=new HashSet<>();
     }
 
     public void generarClientes(){
