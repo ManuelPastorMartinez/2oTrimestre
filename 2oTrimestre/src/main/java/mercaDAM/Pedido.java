@@ -38,7 +38,6 @@ public class Pedido {
      * Este método sirve para aplicar la promoción del 3x2 y llama para aplicar la del 10%, aunque yo no la tengo porque no se cómo se hace ahora mismo
      */
     public void aplicarPromo3x2(){
-        setImporteTotal(0);
         System.out.println("================================================");
         System.out.println("PROMO 3x2 Y 10% DESC. APLICADAS");
         System.out.println("================================================");
