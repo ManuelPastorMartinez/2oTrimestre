@@ -9,6 +9,9 @@ import java.util.HashMap;
 @Getter
 @Setter
 @ToString
+/**
+ * Clase que sirve para crear a los clientes y añadirlos a la lista del mercado
+ */
 public class Cliente {
     private String usuario;
     private String contrasenya;
@@ -16,6 +19,12 @@ public class Cliente {
     private Pedido pedido;
     private boolean promociones;
 
+    /**
+     * Constructor de cliente al que se le pasa el usuario y la contraseña y se crea, la dirección siempre sera la misma, el pedido se creará más adelante y las promociones en false hasta que se apliquen
+     * se quiere aplicar
+     * @param usuario
+     * @param contrasenya
+     */
     public Cliente(String usuario,String contrasenya){
         this.usuario=usuario;
         this.contrasenya=contrasenya;
@@ -24,12 +33,19 @@ public class Cliente {
         this.promociones=false;
     }
 
+    /**
+     * Método que simplemente crea un nuevo pedido para el cliente
+     */
     public void crearPedido(){
         this.pedido = new Pedido();
         pedido.setImporteTotal(0);
         System.out.println("Creando nuevo pedido...");
     }
 
+    /**
+     * Método que sirve para agregar un producto a la lista del pedido y mostrarte todos los productos que llevas y el precio total del pedido
+     * @param producto
+     */
     public void insertarProducto(Producto producto){
         HashMap<Producto,Integer> mapa = pedido.getPedido();
         if (mapa.containsKey(producto)){
@@ -41,6 +57,4 @@ public class Cliente {
         pedido.actualizarImporte(producto.getPRECIO());
         System.out.println("Importe total del pedido: "+pedido.getImporteTotal()+"€");
     }
-
-
 }

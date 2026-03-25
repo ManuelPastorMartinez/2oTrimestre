@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>AppZonaClientes.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #2aacb8;}
+.s6 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+AppZonaClientes.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">mercaDAM</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">HashMap</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Map</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Set</span><span class="s2">;</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* Clase que tiene todo el proceso del mercado</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">AppZonaClientes </span><span class="s2">{</span>
+
+    <span class="s0">private static </span><span class="s1">Cliente cliente</span><span class="s2">;</span>
+    <span class="s0">static </span><span class="s1">Scanner teclado </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Se crea el mercado y se genera un cliente nuevo y te lo imprime y llama a el método de autenticación para verificar al cliente</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">args</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Mercadam mercadam </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Mercadam</span><span class="s2">();</span>
+        <span class="s1">mercadam</span><span class="s2">.</span><span class="s1">generarClientes</span><span class="s2">();</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">mercadam</span><span class="s2">);</span>
+        <span class="s1">autenticacion</span><span class="s2">(</span><span class="s1">mercadam</span><span class="s2">.</span><span class="s1">getClientes</span><span class="s2">());</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* A este método le pasas la lista de clientes y te pide el usuario y la contraseña para verificar, tienes 3 intentos para verificar al usuario y si no el programa se acaba</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">clientes</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">autenticacion</span><span class="s2">(</span><span class="s1">Set</span><span class="s2">&lt;</span><span class="s1">Cliente</span><span class="s2">&gt;</span><span class="s1">clientes</span><span class="s2">){</span>
+        <span class="s0">int </span><span class="s1">intentos </span><span class="s2">= </span><span class="s5">3</span><span class="s2">;</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">intentos</span><span class="s2">&gt;</span><span class="s5">0</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;=== COMRA ONLINE EN MERCADAM ===&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s6">&quot;Usuario: &quot;</span><span class="s2">);</span>
+            <span class="s1">String usuario </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s6">&quot;Contraseña: &quot;</span><span class="s2">);</span>
+            <span class="s1">String contrasenya </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">();</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">Cliente clienteCreado </span><span class="s2">: </span><span class="s1">clientes</span><span class="s2">){</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">clienteCreado</span><span class="s2">.</span><span class="s1">getUsuario</span><span class="s2">().</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">usuario</span><span class="s2">) &amp;&amp; </span><span class="s1">clienteCreado</span><span class="s2">.</span><span class="s1">getContrasenya</span><span class="s2">().</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">contrasenya</span><span class="s2">)){</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Bienvenido, &quot;</span><span class="s2">+</span><span class="s1">usuario</span><span class="s2">);</span>
+                     <span class="s1">cliente</span><span class="s2">=</span><span class="s1">clienteCreado</span><span class="s2">;</span>
+                    <span class="s1">iniciarCompra</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s2">}</span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">intentos</span><span class="s2">--;</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Credenciales no válidos. Intentos: &quot;</span><span class="s2">+</span><span class="s1">intentos</span><span class="s2">);</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">intentos</span><span class="s2">==</span><span class="s5">0</span><span class="s2">){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;ERROR DE AUTENTICACIÓN&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método sencillo que sirve para crear el pedido del cliente y llamar a la lista de productos</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">iniciarCompra</span><span class="s2">(){</span>
+        <span class="s1">cliente</span><span class="s2">.</span><span class="s1">crearPedido</span><span class="s2">();</span>
+        <span class="s1">imprimirProducto</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Te imprime la lista de productos y te pregunta que producto quieres añadir y si quieres añadir otro, si no quieres añadir pasa a imprimirResumen</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirProducto</span><span class="s2">(){</span>
+        <span class="s0">char </span><span class="s1">opcion </span><span class="s2">= </span><span class="s6">'S'</span><span class="s2">;</span>
+        <span class="s0">do </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Elige un producto de la lista...&quot;</span><span class="s2">);</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">Producto producto </span><span class="s2">: </span><span class="s1">Producto</span><span class="s2">.</span><span class="s1">values</span><span class="s2">()) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">producto </span><span class="s2">+ </span><span class="s6">&quot;:&quot; </span><span class="s2">+ </span><span class="s1">producto</span><span class="s2">.</span><span class="s1">getPRECIO</span><span class="s2">() + </span><span class="s6">&quot;€&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;===========================================&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Elige un producto: &quot;</span><span class="s2">);</span>
+            <span class="s0">boolean </span><span class="s1">anyadir </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+            <span class="s1">Producto producto </span><span class="s2">= </span><span class="s0">null</span><span class="s2">;</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">producto </span><span class="s2">= </span><span class="s1">Producto</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">());</span>
+            <span class="s2">}</span><span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">){</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Producto no reconocido. Elige otro...&quot;</span><span class="s2">);</span>
+                <span class="s1">anyadir </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">anyadir</span><span class="s2">){</span>
+                <span class="s1">cliente</span><span class="s2">.</span><span class="s1">insertarProducto</span><span class="s2">(</span><span class="s1">producto</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;¿Quieres añadir más productos (S/N)?&quot;</span><span class="s2">);</span>
+            <span class="s1">opcion</span><span class="s2">=</span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">next</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">charAt</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+        <span class="s2">}</span><span class="s0">while </span><span class="s2">(</span><span class="s1">opcion</span><span class="s2">==</span><span class="s6">'S'</span><span class="s2">);</span>
+        <span class="s1">imprimirResumen</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Te imprime un resumen del pedido del cliente y pasa a mostrarOpciones</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirResumen</span><span class="s2">(){</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;=== RESUMEN DE TU CARRITO DE LA COMPRA ===&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Productos: &quot;</span><span class="s2">);</span>
+        <span class="s1">HashMap</span><span class="s2">&lt;</span><span class="s1">Producto</span><span class="s2">,</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">mapa </span><span class="s2">= </span><span class="s1">cliente</span><span class="s2">.</span><span class="s1">getPedido</span><span class="s2">().</span><span class="s1">getPedido</span><span class="s2">();</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Map</span><span class="s2">.</span><span class="s1">Entry</span><span class="s2">&lt;</span><span class="s1">Producto</span><span class="s2">,</span><span class="s1">Integer</span><span class="s2">&gt;</span><span class="s1">mapita </span><span class="s2">: </span><span class="s1">mapa</span><span class="s2">.</span><span class="s1">entrySet</span><span class="s2">()){</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">mapita</span><span class="s2">.</span><span class="s1">getValue</span><span class="s2">()+</span><span class="s6">&quot; &quot;</span><span class="s2">+</span><span class="s1">mapita</span><span class="s2">.</span><span class="s1">getKey</span><span class="s2">()+</span><span class="s6">&quot; &quot;</span><span class="s2">+</span><span class="s1">mapita</span><span class="s2">.</span><span class="s1">getKey</span><span class="s2">().</span><span class="s1">getPRECIO</span><span class="s2">());</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;IMPORTE TOTAL: &quot;</span><span class="s2">+</span><span class="s1">cliente</span><span class="s2">.</span><span class="s1">getPedido</span><span class="s2">().</span><span class="s1">getImporteTotal</span><span class="s2">());</span>
+        <span class="s1">mostrarOpciones</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Te imprime la despedida y te dice que llegará a la dirección y el programa acaba</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">imprimirDespedida</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;=== GRACIAS POR SU PEDIDO ===&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Lo recibirá en unos días en la dirección &quot;</span><span class="s2">+</span><span class="s1">cliente</span><span class="s2">.</span><span class="s1">getDireccion</span><span class="s2">());</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Te da 3 opciones a elegir y depende de lo que elijas te aplica las promociones, te muestra el pedido ordenado por unidades o termina el pedido</span>
+     <span class="s3">*/</span>
+    <span class="s0">public static void </span><span class="s1">mostrarOpciones</span><span class="s2">(){</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;¿Qué desea hacer?&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;[1]. Aplicar promos.&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;[2]. Mostrar resumen ordenado por uds.&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;[3]. Terminar pedido&quot;</span><span class="s2">);</span>
+
+        <span class="s0">int </span><span class="s1">opcion </span><span class="s2">= </span><span class="s1">teclado</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcion</span><span class="s2">){</span>
+            <span class="s0">case </span><span class="s5">1</span><span class="s2">:</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">cliente</span><span class="s2">.</span><span class="s1">isPromociones</span><span class="s2">()){</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Ya has aplicado tus promociones anteriormente.&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span><span class="s0">else </span><span class="s2">{</span>
+                    <span class="s1">cliente</span><span class="s2">.</span><span class="s1">getPedido</span><span class="s2">().</span><span class="s1">aplicarPromo3x2</span><span class="s2">();</span>
+                    <span class="s1">cliente</span><span class="s2">.</span><span class="s1">setPromociones</span><span class="s2">(</span><span class="s0">true</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">2</span><span class="s2">:</span>
+                <span class="s1">imprimirResumen</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">3</span><span class="s2">:</span>
+                <span class="s1">imprimirDespedida</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">default</span><span class="s2">:</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;Opción no válida, elige otra opción&quot;</span><span class="s2">);</span>
+                <span class="s1">mostrarOpciones</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>

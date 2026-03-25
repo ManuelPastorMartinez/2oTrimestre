@@ -12,15 +12,24 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+/**
+ * Clase que sirve para iniciar al mercado ficticio al que los clientes van a acudir
+ */
 public class Mercadam {
     static String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     static Random random = new Random();
     private Set<Cliente> clientes;
 
+    /**
+     * Constructor que no hay que pasarle nada, simplemente inicia la lista de clientes del mercado
+     */
     public Mercadam(){
         clientes=new HashSet<>();
     }
 
+    /**
+     * Este método sirve para crear un cliente imaginario aleatorio y asignarle un usuario y una contraseña a ese cliente
+     */
     public void generarClientes(){
         String usuario = "";
         String contrasenya = "";
@@ -33,6 +42,11 @@ public class Mercadam {
         clientes.add(cliente);
     }
 
+    /**
+     * este getter sirve para poder llamar a la lista de clientes pero no se podrá modificar al ponerse unmodifiable
+     * @param clientes
+     * @return
+     */
     public Set<Cliente> getClientes(Set<Cliente>clientes){
         return Collections.unmodifiableSet(clientes);
     }

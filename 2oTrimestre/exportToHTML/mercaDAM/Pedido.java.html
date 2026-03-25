@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Pedido.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #67a37c; font-style: italic;}
+.s5 { color: #2aacb8;}
+.s6 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Pedido.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">mercaDAM</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">lombok</span><span class="s2">.</span><span class="s1">Getter</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">lombok</span><span class="s2">.</span><span class="s1">Setter</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">lombok</span><span class="s2">.</span><span class="s1">ToString</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">HashMap</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Map</span><span class="s2">;</span>
+
+<span class="s1">@Getter</span>
+<span class="s1">@Setter</span>
+<span class="s1">@ToString</span>
+
+<span class="s3">/**</span>
+ <span class="s3">* La clase pedido sirvce para mirar el pedido del cliente y el precio total del pedido</span>
+ <span class="s3">*/</span>
+<span class="s0">public class </span><span class="s1">Pedido </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">HashMap</span><span class="s2">&lt;</span><span class="s1">Producto</span><span class="s2">,</span><span class="s1">Integer</span><span class="s2">&gt; </span><span class="s1">pedido</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">importeTotal</span><span class="s2">;</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* El constructor del pedido, inicializa el mapa del pedido</span>
+     <span class="s3">*/</span>
+    <span class="s0">public </span><span class="s1">Pedido</span><span class="s2">(){</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">pedido</span><span class="s2">=</span><span class="s0">new </span><span class="s1">HashMap</span><span class="s2">&lt;&gt;();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Método que sirve para ir actualizando el importe el importe</span>
+     <span class="s3">* </span><span class="s4">@param </span><span class="s3">importe</span>
+     <span class="s3">*/</span>
+
+    <span class="s0">public void </span><span class="s1">actualizarImporte</span><span class="s2">(</span><span class="s0">double </span><span class="s1">importe</span><span class="s2">){</span>
+        <span class="s1">importeTotal</span><span class="s2">+=</span><span class="s1">importe</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Este método sirve para aplicar la promoción del 3x2 y llama para aplicar la del 10%, aunque yo no la tengo porque no se cómo se hace ahora mismo</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">aplicarPromo3x2</span><span class="s2">(){</span>
+        <span class="s1">setImporteTotal</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;================================================&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;PROMO 3x2 Y 10% DESC. APLICADAS&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s6">&quot;================================================&quot;</span><span class="s2">);</span>
+
+        <span class="s1">aplicarPromo10</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">/**</span>
+     <span class="s3">* Esta promo lo único que hace es multiplicar el importe total por 0,9 ya que si se aplica un 10% de descuento significa que te cobran el resto</span>
+     <span class="s3">*/</span>
+    <span class="s0">public void </span><span class="s1">aplicarPromo10</span><span class="s2">(){</span>
+        <span class="s1">importeTotal </span><span class="s2">= </span><span class="s1">importeTotal </span><span class="s2">* </span><span class="s5">0.9</span><span class="s2">;</span>
+        <span class="s1">AppZonaClientes</span><span class="s2">.</span><span class="s1">imprimirResumen</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
