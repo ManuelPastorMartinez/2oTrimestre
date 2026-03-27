@@ -1,20 +1,31 @@
 package lambdas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ejercicio2 {
     public static void main(String[] args) {
-        VerificadorVoto verificar = new VerificadorVoto() {
-            @Override
-            public Boolean puedeVotar(String nombre, int edad) {
-                System.out.print("Probando "+nombre+" con "+edad+" años... ");
-                if (edad<18){
-                    return false;
-                }else {
-                    return true;
-                }
-            }
-        };
 
-        System.out.println(verificar.puedeVotar("Maria",14));
-        System.out.println(verificar.puedeVotar("Manuel",18));
+        List<Persona> personas = new ArrayList<>();
+        personas.add(new Persona("Juan",16));
+        personas.add(new Persona("Ana",18));
+        personas.add(new Persona("Pedro",25));
+        personas.add(new Persona("María",17));
+        personas.add(new Persona("Luis",30));
+
+        VerificadorVoto verificador = persona -> persona.getEdad() >= 18;
+
+        List<String> personasQuePuedenVotar = new ArrayList<>();
+
+        for (Persona persona : personas){
+            if (verificador.puedeVotar(persona)){
+                personasQuePuedenVotar.add(persona.getNombre());
+            }
+        }
+
+        System.out.println("Personas que pueden votar:");
+        for (String nombre : personasQuePuedenVotar){
+            System.out.println(nombre);
+        }
     }
 }

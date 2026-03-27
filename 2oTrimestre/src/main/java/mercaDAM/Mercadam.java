@@ -43,7 +43,7 @@ public class Mercadam {
     }
 
     /**
-     * este getter sirve para poder llamar a la lista de clientes pero no se podrá modificar al ponerse unmodifiable
+     * Este getter sirve para poder llamar a la lista de clientes pero no se podrá modificar al ponerse unmodifiable
      * @param clientes
      * @return
      */
