@@ -144,7 +144,7 @@ public class AppZonaClientes {
                 break;
             case 3:
                 imprimirDespedida();
-                return;
+                break;
             default:
                 System.out.println("Opción no válida, elige otra opción");
                 mostrarOpciones();
