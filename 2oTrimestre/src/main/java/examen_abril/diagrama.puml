@@ -1,0 +1,63 @@
+@startuml
+
+' ===== CLASE PRINCIPAL =====
+class EleccionesApp {
+    - static matriz : double[][]
+    - static yaHanVotado : Collection<Votante>
+    - static votosPorPueblos : Map<?,?>
+
+    + static main(args : String[]) : void
+    + static validarDocumento(documento : String) : boolean
+    + static verificarEmpadronamiento(votante : Votante) : boolean
+    + static comprobarFraude(votante : Votante) : boolean
+    + static contabilizarDatosEncuesta(opcion : int) : void
+    + static recuento() : void
+}
+
+' ===== CLASE ABSTRACTA =====
+abstract class Votante {
+    - poblacion : String
+    - nombre : String
+    - votado : boolean
+
+    + abstract votar() : String
+    + static encuestaSatisfaccion() : int
+}
+
+' ===== HERENCIA =====
+class Nacional {
+    - dni : String
+    + Nacional(poblacion : String, nombre : String, dni : String)
+    + Nacional(dni : String)
+}
+
+class Extranjero {
+    - nie : String
+    - pais : String
+    + Extranjero(poblacion : String, nombre : String, nie : String, pais : String)
+    + Extranjero(nie : String, pais : String)
+}
+
+Votante <|-- Nacional
+Votante <|-- Extranjero
+
+' ===== CENSO =====
+class Censo {
+    - static censo : ArrayList<Votante>
+    + static generarCenso() : void
+}
+
+' ===== ENUM =====
+enum Experiencia {
+    HORRIBLE
+    MEJORABLE
+    INTUITIVA
+    EXCELENTE
+}
+
+' ===== RELACIONES =====
+EleccionesApp --> Votante
+EleccionesApp --> Censo
+Censo *--> Votante
+
+@enduml
